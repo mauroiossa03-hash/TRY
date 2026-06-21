@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { STRATEGIES } from "../lib/mockData";
@@ -27,8 +28,15 @@ export default function StrategyMatrix() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
-                {STRATEGIES.map((s) => (
-                  <tr key={s.id} className="group hover:bg-surface-2/60 transition-colors">
+                {STRATEGIES.map((s, i) => (
+                  <motion.tr
+                    key={s.id}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="group hover:bg-surface-2/60 transition-colors"
+                  >
                     <td className="px-6 py-5">
                       <div className="flex items-center gap-2.5">
                         <span className="font-mono text-xs rounded-md bg-surface-2 border border-edge px-2 py-1 text-mint shrink-0">
@@ -58,7 +66,7 @@ export default function StrategyMatrix() {
                         {s.status === "live" ? "Live" : "Verifying"}
                       </span>
                     </td>
-                  </tr>
+                  </motion.tr>
                 ))}
               </tbody>
             </table>

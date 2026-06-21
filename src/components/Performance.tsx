@@ -108,35 +108,35 @@ export default function Performance() {
                 <LineChart data={PNL_SERIES} margin={{ top: 10, right: 16, bottom: 0, left: 0 }}>
                   <defs>
                     <linearGradient id="pnlFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#2dd4a7" stopOpacity={0.25} />
-                      <stop offset="100%" stopColor="#2dd4a7" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#34dba8" stopOpacity={0.25} />
+                      <stop offset="100%" stopColor="#34dba8" stopOpacity={0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid stroke="#1f2430" vertical={false} />
+                  <CartesianGrid stroke="#2b3445" vertical={false} />
                   <XAxis
                     dataKey="signal"
-                    tick={{ fill: "#565d70", fontSize: 11 }}
+                    tick={{ fill: "#717c93", fontSize: 11 }}
                     tickLine={false}
-                    axisLine={{ stroke: "#1f2430" }}
+                    axisLine={{ stroke: "#2b3445" }}
                     tickFormatter={(v) => `#${v}`}
                     minTickGap={40}
                   />
                   <YAxis
-                    tick={{ fill: "#565d70", fontSize: 11 }}
+                    tick={{ fill: "#717c93", fontSize: 11 }}
                     tickLine={false}
                     axisLine={false}
                     width={36}
                     tickFormatter={(v) => `${v}u`}
                   />
-                  <ReferenceLine y={0} stroke="#2a3040" />
+                  <ReferenceLine y={0} stroke="#3c4759" />
                   <Tooltip content={<ChartTooltip />} />
                   <Line
                     type="monotone"
                     dataKey="cumPnl"
-                    stroke="#2dd4a7"
+                    stroke="#34dba8"
                     strokeWidth={2}
                     dot={false}
-                    activeDot={{ r: 4, fill: "#2dd4a7", stroke: "#06070a", strokeWidth: 2 }}
+                    activeDot={{ r: 4, fill: "#34dba8", stroke: "#0d1117", strokeWidth: 2 }}
                     isAnimationActive
                     animationDuration={1600}
                   />

@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL } from "../lib/config";
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoFailed, setVideoFailed] = useState(false);
   const [isMobile, setIsMobile] = useState(
@@ -26,9 +27,15 @@ export default function Hero() {
 
   const showVideo = !isMobile && !videoFailed;
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-bg">
-      <div className="absolute inset-0">
+    <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden bg-bg">
+      <motion.div className="absolute inset-0" style={{ y }}>
         {showVideo ? (
           <video
             ref={videoRef}
@@ -52,7 +59,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/70 to-bg" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg/60 via-transparent to-bg/60" />
         <div className="absolute inset-0 bg-grid opacity-40" />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 pt-24 pb-20">
         <motion.div
