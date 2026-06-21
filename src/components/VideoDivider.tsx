@@ -65,8 +65,8 @@ export default function VideoDivider() {
         )}
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg/55 to-bg" />
-      <div className="absolute inset-0 bg-gradient-to-r from-bg/70 via-transparent to-bg/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg/90 via-bg/35 to-bg/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-bg/55 via-transparent to-bg/55" />
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5">
         <motion.p

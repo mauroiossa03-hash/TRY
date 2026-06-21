@@ -56,9 +56,9 @@ export default function Hero() {
             className="size-full object-cover"
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/70 to-bg" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg/60 via-transparent to-bg/60" />
-        <div className="absolute inset-0 bg-grid opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/65 via-bg/45 to-bg" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg/45 via-transparent to-bg/45" />
+        <div className="absolute inset-0 bg-grid opacity-25" />
       </motion.div>
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 pt-24 pb-20">

@@ -72,34 +72,6 @@ export default function StrategyMatrix() {
             </table>
           </div>
         </ScrollReveal>
-
-        <div className="mt-8 grid sm:grid-cols-2 gap-5">
-          <ScrollReveal delay={0.1}>
-            <div className="rounded-2xl border border-border bg-surface p-6">
-              <p className="font-mono text-xs text-mint uppercase tracking-wide mb-3">3M &middot; Worked example</p>
-              <p className="text-sm text-text-dim leading-relaxed">
-                A player enters match 3 of their group at <span className="text-text font-medium">1 win, 1 loss</span>.
-                Their opponent enters at <span className="text-text font-medium">2 wins</span> (already qualified, lower
-                urgency) or <span className="text-text font-medium">2 losses</span> (eliminated, nothing to play for).
-                When the market price for the 1W–1L player falls between{" "}
-                <span className="font-mono-tabular text-text">1.65</span> and{" "}
-                <span className="font-mono-tabular text-text">2.30</span>, the signal fires.
-              </p>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.18}>
-            <div className="rounded-2xl border border-border bg-surface p-6">
-              <p className="font-mono text-xs text-mint uppercase tracking-wide mb-3">6D &middot; Worked example</p>
-              <p className="text-sm text-text-dim leading-relaxed">
-                In the group's 6th and final match — the decider — we strip
-                bookmaker margin from the quoted odds to compute true implied
-                probability. When that de-marginalized probability for our
-                side sits between <span className="font-mono-tabular text-text">0.40</span> and{" "}
-                <span className="font-mono-tabular text-text">0.65</span>, our model's edge condition is met.
-              </p>
-            </div>
-          </ScrollReveal>
-        </div>
       </div>
     </section>
   );
