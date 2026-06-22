@@ -2,7 +2,6 @@ import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import TerminalLog from "./TerminalLog";
 import { CpuArchitecture } from "./ui/cpu-architecture";
-import { ENGINE_BLADE_PHOTO } from "../lib/config";
 
 export default function EngineLog() {
   return (
@@ -16,11 +15,7 @@ export default function EngineLog() {
         />
         <div className="mt-12 grid lg:grid-cols-2 gap-8 items-center">
           <ScrollReveal delay={0.1} className="flex items-center justify-center overflow-hidden rounded-2xl border border-border bg-surface p-8">
-            <CpuArchitecture
-              scale={2.4}
-              imageSrc={ENGINE_BLADE_PHOTO}
-              imageAlt="Engine processing core"
-            />
+            <CpuArchitecture scale={2.4} />
           </ScrollReveal>
           <ScrollReveal delay={0.2}>
             <TerminalLog />

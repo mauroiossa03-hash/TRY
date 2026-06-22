@@ -6,5 +6,5 @@ needed (it's played muted). The hero falls back to the static image in
 `public/images/` on mobile, on reduced-motion, or if this file is missing.
 
 Also drop a second, closer-angle clip as `divider-loop.mp4` (referenced by
-`DIVIDER_VIDEO_URL`) — used in the full-width video section between
-"What We Do" and the Strategy Matrix. Same specs as above.
+`DIVIDER_VIDEO_URL`) — used in the full-width video section between the
+engine log and Performance. Same specs as above.

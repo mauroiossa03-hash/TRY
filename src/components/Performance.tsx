@@ -3,6 +3,7 @@ import ScrollReveal from "./ScrollReveal";
 import SplitFlap from "./SplitFlap";
 import EquityCurveBall from "./EquityCurveBall";
 import { PNL_SERIES, PERFORMANCE_STATS } from "../lib/mockData";
+import { PERFORMANCE_BG_PHOTO } from "../lib/config";
 
 const STAT_CARDS = [
   {
@@ -33,22 +34,35 @@ export default function Performance() {
           description="Every signal we've sent is logged here — wins, losses, and the cumulative result. Mock data shown below; swap in your own tracked figures."
         />
 
-        <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {STAT_CARDS.map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 0.08}>
-              <div className="group rounded-2xl border border-border bg-surface p-6 hover:border-mint/30 hover:-translate-y-1 transition-all duration-300">
-                <p className="text-xs uppercase tracking-wide text-text-faint mb-3">
+        <ScrollReveal delay={0.05} className="relative mt-14 rounded-3xl overflow-hidden">
+          <div
+            className="absolute inset-0 bg-cover"
+            style={{
+              backgroundImage: `url(${PERFORMANCE_BG_PHOTO})`,
+              backgroundSize: "220% auto",
+              backgroundPosition: "center 32%",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/65" />
+
+          <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 p-5 sm:p-6">
+            {STAT_CARDS.map((stat) => (
+              <div
+                key={stat.label}
+                className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 hover:border-mint/40 hover:-translate-y-1 transition-all duration-300"
+              >
+                <p className="text-xs uppercase tracking-wide text-white/55 mb-3">
                   {stat.label}
                 </p>
                 <SplitFlap
                   value={stat.value}
-                  className="text-3xl text-text font-semibold"
-                  cellClassName="rounded-sm bg-surface-2 border border-edge px-1 mr-0.5"
+                  className="text-3xl text-white font-semibold"
+                  cellClassName="rounded-sm bg-white/10 border border-white/20 px-1 mr-0.5"
                 />
               </div>
-            </ScrollReveal>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollReveal>
 
         <ScrollReveal delay={0.2} className="mt-8">
           <div className="rounded-2xl border border-border bg-surface p-4 sm:p-8">
