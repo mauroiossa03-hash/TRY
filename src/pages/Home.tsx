@@ -3,9 +3,9 @@ import ServiceSection from "../components/ServiceSection";
 import ApproachSection from "../components/ApproachSection";
 import EngineLog from "../components/EngineLog";
 import VideoDivider from "../components/VideoDivider";
-import StrategyMatrix from "../components/StrategyMatrix";
 import Performance from "../components/Performance";
 import Pricing from "../components/Pricing";
+import JoinCTA from "../components/JoinCTA";
 
 export default function Home() {
   return (
@@ -15,9 +15,9 @@ export default function Home() {
       <ApproachSection />
       <EngineLog />
       <VideoDivider />
-      <StrategyMatrix />
       <Performance />
       <Pricing />
+      <JoinCTA />
     </>
   );
 }

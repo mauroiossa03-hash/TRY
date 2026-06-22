@@ -12,7 +12,7 @@ export const HERO_VIDEO_URL = "/videos/hero-loop.mp4";
 // video fails to load. Drop a still frame at public/images/hero-fallback.jpg.
 export const HERO_FALLBACK_IMAGE = "/images/hero-fallback.jpg";
 
-// Section-divider video, shown between Approach and Strategy Matrix.
+// Section-divider video, shown between the engine log and Performance.
 // Drop a closer-shot rally clip at public/videos/divider-loop.mp4 — using a
 // different angle from the hero clip reads better than a repeat.
 export const DIVIDER_VIDEO_URL = "/videos/divider-loop.mp4";

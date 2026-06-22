@@ -48,50 +48,6 @@ export const PERFORMANCE_STATS = {
   longestStreak: 7,
 };
 
-export interface StrategyRow {
-  id: string;
-  name: string;
-  scenario: string;
-  trigger: string;
-  oddsFilter: string;
-  sampleSize: string;
-  winRate: string;
-  status: "live" | "verifying";
-}
-
-export const STRATEGIES: StrategyRow[] = [
-  {
-    id: "3M",
-    name: "3rd-Match Differential",
-    scenario: "Round-robin, match 3 of group stage",
-    trigger: "Player sits at 1W–1L vs. an opponent at 2W or 2L",
-    oddsFilter: "1.65 – 2.30",
-    sampleSize: "1,240+ matches",
-    winRate: "59.4%",
-    status: "live",
-  },
-  {
-    id: "6D",
-    name: "6th-Match Decider",
-    scenario: "Round-robin, final/decider match of group",
-    trigger: "De-marginalized implied probability band",
-    oddsFilter: "0.40 – 0.65 implied",
-    sampleSize: "860+ matches",
-    winRate: "61.1%",
-    status: "live",
-  },
-  {
-    id: "MR",
-    name: "Mid-Group Reversion",
-    scenario: "Round-robin, matches 4–5",
-    trigger: "Form-implied mispricing after early group results",
-    oddsFilter: "1.70 – 2.10",
-    sampleSize: "Backtesting",
-    winRate: "—",
-    status: "verifying",
-  },
-];
-
 export interface SignalExample {
   id: string;
   tag: string;
