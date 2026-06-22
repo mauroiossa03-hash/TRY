@@ -80,4 +80,24 @@
   .glow-mint {
     box-shadow: 0 0 0 1px rgba(45, 212, 167, 0.25), 0 0 40px -10px rgba(45, 212, 167, 0.35);
   }
+
+  .flap-char {
+    display: inline-block;
+    animation: flap-in 120ms ease-out;
+    transform-origin: 50% 50%;
+  }
+}
+
+@keyframes flap-in {
+  0% {
+    transform: rotateX(70deg);
+    opacity: 0.4;
+  }
+  60% {
+    transform: rotateX(-6deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
 }

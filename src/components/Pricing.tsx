@@ -1,6 +1,7 @@
 import { Check, ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
+import BackgroundPaths from "./BackgroundPaths";
 import { TELEGRAM_URL } from "../lib/config";
 
 const PLANS = [
@@ -49,8 +50,9 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+    <section id="pricing" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border overflow-hidden">
+      <BackgroundPaths className="opacity-50" />
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           align="center"
           eyebrow="Pricing"

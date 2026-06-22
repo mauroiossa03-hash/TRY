@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL } from "../lib/config";
+import BackgroundPaths from "./BackgroundPaths";
+import SplitFlap from "./SplitFlap";
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -60,6 +62,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-bg/45 via-transparent to-bg/45" />
         <div className="absolute inset-0 bg-grid opacity-25" />
       </motion.div>
+
+      <BackgroundPaths className="z-[5] opacity-70" />
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 pt-24 pb-20">
         <motion.div
@@ -124,7 +128,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 flex flex-wrap gap-x-10 gap-y-4 font-mono-tabular"
+          className="mt-16 flex flex-wrap gap-x-10 gap-y-4"
         >
           {[
             { label: "Win rate", value: "59.4%" },
@@ -133,8 +137,12 @@ export default function Hero() {
             { label: "Avg. odds", value: "1.94" },
           ].map((stat) => (
             <div key={stat.label}>
-              <div className="text-2xl text-text font-semibold">{stat.value}</div>
-              <div className="text-xs text-text-faint mt-1 uppercase tracking-wide">
+              <SplitFlap
+                value={stat.value}
+                className="text-2xl text-mint font-semibold"
+                cellClassName="rounded-sm bg-surface-2 border border-edge px-1 mr-0.5"
+              />
+              <div className="text-xs text-text-faint mt-2 uppercase tracking-wide">
                 {stat.label}
               </div>
             </div>
