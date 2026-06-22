@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { PulseBeams } from "./ui/pulse-beams";
+import SectionHeading from "./SectionHeading";
 import { TELEGRAM_URL } from "../lib/config";
 
 const beams = [
@@ -121,36 +122,36 @@ const beams = [
 ];
 
 const gradientColors = {
-  start: "#18CCFC",
-  middle: "#34dba8",
-  end: "#22b083",
+  start: "#16a34a",
+  middle: "#ffffff",
+  end: "#dc2626",
 };
 
 export default function JoinCTA() {
   return (
     <section id="join" className="relative border-t border-border bg-bg-soft">
-      <PulseBeams
-        beams={beams}
-        gradientColors={gradientColors}
-        className="!h-auto py-24 sm:py-32 bg-bg-soft"
-      >
+      <div className="relative z-20 mx-auto max-w-3xl px-5 sm:px-8 pt-24 sm:pt-32 text-center">
+        <SectionHeading
+          align="center"
+          eyebrow="Get Started"
+          title="Join the signal feed."
+          description="Real-time entries, tracked transparently, delivered where you already are."
+        />
         <a
           href={TELEGRAM_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative z-40 block h-[120px] w-[280px] sm:w-[320px] cursor-pointer rounded-full p-px no-underline shadow-2xl shadow-black/40"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-mint px-7 py-3.5 text-base font-medium text-white hover:bg-mint-dim transition-colors glow-mint"
         >
-          <span className="absolute inset-0 overflow-hidden rounded-full">
-            <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(52,219,168,0.5)_0%,rgba(52,219,168,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          </span>
-          <div className="relative z-10 flex h-[120px] w-full items-center justify-center gap-2 rounded-full bg-surface px-4 ring-1 ring-edge">
-            <span className="text-2xl sm:text-3xl font-medium text-text">
-              Join on Telegram
-            </span>
-            <ArrowUpRight className="size-5 text-mint shrink-0" />
-          </div>
+          Join on Telegram
+          <ArrowUpRight className="size-4" />
         </a>
-      </PulseBeams>
+      </div>
+      <PulseBeams
+        beams={beams}
+        gradientColors={gradientColors}
+        className="!h-auto pb-24 sm:pb-32 bg-bg-soft"
+      />
     </section>
   );
 }

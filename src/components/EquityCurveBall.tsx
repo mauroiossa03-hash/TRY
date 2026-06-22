@@ -105,8 +105,8 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
       >
         <defs>
           <linearGradient id="equityFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#34dba8" stopOpacity={0.22} />
-            <stop offset="100%" stopColor="#34dba8" stopOpacity={0} />
+            <stop offset="0%" stopColor="var(--color-mint)" stopOpacity={0.22} />
+            <stop offset="100%" stopColor="var(--color-mint)" stopOpacity={0} />
           </linearGradient>
         </defs>
 
@@ -120,7 +120,7 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
                 x2={width - PADDING.right}
                 y1={y}
                 y2={y}
-                stroke="#2b3445"
+                stroke="var(--color-border)"
                 strokeWidth={1}
               />
               <text
@@ -129,7 +129,7 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
                 textAnchor="end"
                 dominantBaseline="middle"
                 fontSize={10}
-                fill="#717c93"
+                fill="var(--color-text-faint)"
               >
                 {val.toFixed(0)}u
               </text>
@@ -141,7 +141,7 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
           x2={width - PADDING.right}
           y1={zeroY}
           y2={zeroY}
-          stroke="#3c4759"
+          stroke="var(--color-edge)"
         />
 
         <path d={areaPath} fill="url(#equityFill)" stroke="none" />
@@ -150,11 +150,11 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
           ref={trailRef}
           d={linePath}
           fill="none"
-          stroke="#34dba8"
+          stroke="var(--color-mint)"
           strokeWidth={2}
           strokeLinecap="round"
         />
-        <circle ref={ballRef} r={5} fill="#34dba8" stroke="#0d1117" strokeWidth={2} opacity={0} />
+        <circle ref={ballRef} r={5} fill="var(--color-mint)" stroke="var(--color-bg)" strokeWidth={2} opacity={0} />
 
         {hover && (
           <>
@@ -163,10 +163,10 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
               x2={hover.x}
               y1={PADDING.top}
               y2={height - PADDING.bottom}
-              stroke="#3c4759"
+              stroke="var(--color-edge)"
               strokeDasharray="3 3"
             />
-            <circle cx={hover.x} cy={hover.y} r={4} fill="#34dba8" stroke="#0d1117" strokeWidth={2} />
+            <circle cx={hover.x} cy={hover.y} r={4} fill="var(--color-mint)" stroke="var(--color-bg)" strokeWidth={2} />
           </>
         )}
       </svg>

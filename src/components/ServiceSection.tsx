@@ -52,7 +52,7 @@ export default function ServiceSection() {
           {FEATURES.map((feature, i) => (
             <ScrollReveal key={feature.title} delay={i * 0.08}>
               <div className="group h-full rounded-2xl border border-border bg-surface p-6 hover:border-edge hover:-translate-y-1 transition-all duration-300">
-                <div className="inline-flex items-center justify-center size-10 rounded-lg bg-mint/10 text-mint mb-4 group-hover:bg-mint group-hover:text-[#03130f] transition-colors">
+                <div className="inline-flex items-center justify-center size-10 rounded-lg bg-mint/10 text-mint mb-4 group-hover:bg-mint group-hover:text-white transition-colors">
                   <feature.icon className="size-5" />
                 </div>
                 <h3 className="text-text font-medium mb-2">{feature.title}</h3>

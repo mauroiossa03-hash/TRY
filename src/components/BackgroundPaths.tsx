@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 
-function FloatingPaths({ position }: { position: number }) {
+function FloatingPaths({ position, color }: { position: number; color: string }) {
   const paths = useMemo(
     () =>
       Array.from({ length: 22 }, (_, i) => ({
@@ -30,7 +30,7 @@ function FloatingPaths({ position }: { position: number }) {
         <motion.path
           key={path.id}
           d={path.d}
-          stroke="#34dba8"
+          stroke={color}
           strokeWidth={path.width}
           strokeOpacity={0.05 + path.id * 0.012}
           initial={{ pathLength: 0.3, opacity: 0.3 }}
@@ -53,8 +53,8 @@ function FloatingPaths({ position }: { position: number }) {
 export default function BackgroundPaths({ className = "" }: { className?: string }) {
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      <FloatingPaths position={1} />
-      <FloatingPaths position={-1} />
+      <FloatingPaths position={1} color="var(--color-mint)" />
+      <FloatingPaths position={-1} color="var(--color-red)" />
     </div>
   );
 }

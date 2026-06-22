@@ -3,14 +3,11 @@
 export const TELEGRAM_URL = "https://t.me/your_channel_here";
 export const INSTAGRAM_URL = "https://instagram.com/your_profile_here";
 
-// Drop an .mp4 at this path (public/videos/hero-loop.mp4) to enable the
-// hero background video. Until then the component falls back to the
-// static image below on all devices.
-export const HERO_VIDEO_URL = "/videos/hero-loop.mp4";
+// Hero product shot — the table the ball animates across on scroll.
+export const HERO_TABLE_PHOTO = "/images/ping-pong-table.png";
 
-// Static fallback shown on mobile, on reduced-motion, and while/if the
-// video fails to load. Drop a still frame at public/images/hero-fallback.jpg.
-export const HERO_FALLBACK_IMAGE = "/images/hero-fallback.jpg";
+// Blade photo shown inside the CPU-architecture diagram in the engine log.
+export const ENGINE_BLADE_PHOTO = "/images/racket-blade.png";
 
 // Section-divider video, shown between the engine log and Performance.
 // Drop a closer-shot rally clip at public/videos/divider-loop.mp4 — using a

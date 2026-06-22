@@ -4,21 +4,21 @@
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
 
-  --color-bg: #0d1117;
-  --color-bg-soft: #121822;
-  --color-surface: #181f2b;
-  --color-surface-2: #1f2836;
-  --color-border: #2b3445;
-  --color-edge: #3c4759;
+  --color-bg: #ffffff;
+  --color-bg-soft: #f3f5f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef1f5;
+  --color-border: #e3e7ed;
+  --color-edge: #cdd4dd;
 
-  --color-mint: #34dba8;
-  --color-mint-dim: #22b083;
-  --color-amber: #f3bd45;
-  --color-red: #f25c5c;
+  --color-mint: #16a34a;
+  --color-mint-dim: #15803d;
+  --color-amber: #b45309;
+  --color-red: #dc2626;
 
-  --color-text: #f1f3f8;
-  --color-text-dim: #a8b1c4;
-  --color-text-faint: #717c93;
+  --color-text: #0f1419;
+  --color-text-dim: #4b5563;
+  --color-text-faint: #8a93a3;
 }
 
 @layer base {
@@ -41,7 +41,7 @@
 
   ::selection {
     background: var(--color-mint);
-    color: #03130f;
+    color: #ffffff;
   }
 
   ::-webkit-scrollbar {
@@ -65,20 +65,20 @@
 
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(15, 20, 25, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(15, 20, 25, 0.04) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #a9b2c3 60%, #6b7385 100%);
+    background: linear-gradient(135deg, #0f1419 0%, #3f4a5a 60%, #6b7585 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .glow-mint {
-    box-shadow: 0 0 0 1px rgba(45, 212, 167, 0.25), 0 0 40px -10px rgba(45, 212, 167, 0.35);
+    box-shadow: 0 0 0 1px rgba(22, 163, 74, 0.25), 0 0 40px -10px rgba(22, 163, 74, 0.35);
   }
 
   .flap-char {
@@ -99,5 +99,69 @@
   100% {
     transform: rotateX(0deg);
     opacity: 1;
+  }
+}
+
+.cpu-architecture {
+  offset-anchor: 10px 0px;
+  animation: animation-path;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.cpu-line-1 {
+  offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 15");
+  animation-duration: 2s;
+  animation-delay: 0.2s;
+}
+
+.cpu-line-2 {
+  offset-path: path("M 180 10 h -69.5 q -5 0 -5 5 v 25");
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+
+.cpu-line-3 {
+  offset-path: path("M 130 20 v 11.5 q 0 5 -5 5 h -10");
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+
+.cpu-line-4 {
+  offset-path: path("M 170 80 v -11.5 q 0 -5 -5 -5 h -50");
+  animation-duration: 1.8s;
+  animation-delay: 0.4s;
+}
+
+.cpu-line-5 {
+  offset-path: path("M 100 100 v -21.5 q 0 -5 5 -5 h 0");
+  animation-duration: 2.4s;
+  animation-delay: 0.3s;
+}
+
+.cpu-line-6 {
+  offset-path: path("M 50 100 v -21.5 q 0 -5 -5 -5 h 40");
+  animation-duration: 2.1s;
+  animation-delay: 0.6s;
+}
+
+.cpu-line-7 {
+  offset-path: path("M 110 100 v -10 q 0 -5 5 -5 h 0");
+  animation-duration: 1.9s;
+  animation-delay: 0.15s;
+}
+
+.cpu-line-8 {
+  offset-path: path("M 90 100 v -10 q 0 -5 -5 -5 h 0");
+  animation-duration: 2.3s;
+  animation-delay: 0.45s;
+}
+
+@keyframes animation-path {
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
   }
 }

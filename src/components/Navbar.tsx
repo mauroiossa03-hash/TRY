@@ -62,7 +62,7 @@ export default function Navbar() {
             href={TELEGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-mint px-4 py-2 text-sm font-medium text-[#03130f] hover:bg-mint-dim transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full bg-mint px-4 py-2 text-sm font-medium text-white hover:bg-mint-dim transition-colors"
           >
             Join on Telegram
             <ArrowUpRight className="size-3.5" />
@@ -101,7 +101,7 @@ export default function Navbar() {
                 href={TELEGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded-full bg-mint px-4 py-2.5 text-sm font-medium text-[#03130f] mt-1"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full bg-mint px-4 py-2.5 text-sm font-medium text-white mt-1"
               >
                 Join on Telegram
                 <ArrowUpRight className="size-3.5" />

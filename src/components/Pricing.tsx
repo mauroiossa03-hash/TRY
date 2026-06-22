@@ -71,7 +71,7 @@ export default function Pricing() {
                 }`}
               >
                 {plan.highlight && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-mint px-3 py-1 text-xs font-medium text-[#03130f]">
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-mint px-3 py-1 text-xs font-medium text-white">
                     Most popular
                   </span>
                 )}
@@ -102,7 +102,7 @@ export default function Pricing() {
                   rel="noopener noreferrer"
                   className={`mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-colors ${
                     plan.highlight
-                      ? "bg-mint text-[#03130f] hover:bg-mint-dim"
+                      ? "bg-mint text-white hover:bg-mint-dim"
                       : "border border-edge text-text hover:bg-surface-2"
                   }`}
                 >
