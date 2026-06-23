@@ -150,7 +150,7 @@ export default function JoinCTA() {
       <PulseBeams
         beams={beams}
         gradientColors={gradientColors}
-        className="!h-auto pb-24 sm:pb-32 bg-bg-soft"
+        className="hidden sm:flex !h-auto pb-24 sm:pb-32 bg-bg-soft"
       />
     </section>
   );
