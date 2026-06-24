@@ -1,8 +1,11 @@
 import InstagramGlyph from "../components/InstagramGlyph";
 import RedirectPage from "./RedirectPage";
 import { INSTAGRAM_URL } from "../lib/config";
+import { useDocTitle } from "../lib/useDocTitle";
 
 export default function Instagram() {
+  useDocTitle("Instagram — SPINEDGE");
+
   return (
     <RedirectPage
       icon={InstagramGlyph}

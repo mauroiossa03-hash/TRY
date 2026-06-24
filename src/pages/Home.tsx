@@ -6,8 +6,11 @@ import VideoDivider from "../components/VideoDivider";
 import Performance from "../components/Performance";
 import Pricing from "../components/Pricing";
 import JoinCTA from "../components/JoinCTA";
+import { useDocTitle } from "../lib/useDocTitle";
 
 export default function Home() {
+  useDocTitle("SPINEDGE — Quant Signals for Table Tennis");
+
   return (
     <>
       <Hero />
