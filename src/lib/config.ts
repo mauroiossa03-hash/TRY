@@ -11,10 +11,4 @@ export const HERO_FALLBACK_IMAGE = "/images/hero-fallback.jpg";
 // stat cards and equity curve panel.
 export const PERFORMANCE_BG_PHOTO = "/images/racket-blade.png";
 
-// Section-divider video, shown between the engine log and Performance.
-// Drop a closer-shot rally clip at public/videos/divider-loop.mp4 — using a
-// different angle from the hero clip reads better than a repeat.
-export const DIVIDER_VIDEO_URL = "/videos/divider-loop.mp4";
-export const DIVIDER_FALLBACK_IMAGE = "/images/divider-fallback.jpg";
-
 export const BRAND_NAME = "SPINEDGE";

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL } from "../lib/config";
-import SplitFlap from "./SplitFlap";
+import { IS_MOCK_DATA } from "../lib/mockData";
 
 export default function Hero() {
   const [videoFailed, setVideoFailed] = useState(false);
@@ -31,6 +31,7 @@ export default function Hero() {
       {showVideo ? (
         <video
           className="absolute inset-0 size-full object-cover"
+          preload="metadata"
           autoPlay
           muted
           loop
@@ -44,6 +45,8 @@ export default function Hero() {
         <img
           src={HERO_FALLBACK_IMAGE}
           alt="Table tennis rally"
+          loading="eager"
+          fetchPriority="high"
           className="absolute inset-0 size-full object-cover"
         />
       )}
@@ -63,7 +66,9 @@ export default function Hero() {
             <span className="relative inline-flex size-2 rounded-full bg-mint" />
           </span>
           <span className="font-mono text-xs tracking-wide text-white/80">
-            LIVE &middot; Czech Liga Pro &amp; TT Cup &middot; 86 signals tracked
+            {IS_MOCK_DATA
+              ? "DEMO · Czech Liga Pro & TT Cup"
+              : "Czech Liga Pro · TT Cup · 24/7 monitoring"}
           </span>
         </motion.div>
 
@@ -82,9 +87,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.22, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="mt-6 text-lg sm:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed"
         >
-          We model structural inefficiencies in round-robin group-stage
-          dynamics and deliver edge-verified entries straight to your
-          Telegram — entry, odds, strategy tag, and PnL, every time.
+          Edge-verified entries on Czech Liga Pro and TT Cup round-robin
+          matches. Tracked transparently. Delivered to Telegram.
         </motion.p>
 
         <motion.div
@@ -110,30 +114,14 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 flex flex-wrap justify-center gap-x-10 gap-y-4"
+          className="mt-16 text-xs text-white/50 uppercase tracking-wide"
         >
-          {[
-            { label: "Win rate", value: "59.4%" },
-            { label: "Signals tracked", value: "86" },
-            { label: "Cumulative units", value: "+15.3u" },
-            { label: "Avg. odds", value: "1.94" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <SplitFlap
-                value={stat.value}
-                className="text-2xl text-mint font-semibold justify-center"
-                cellClassName="rounded-sm bg-white/10 border border-white/20 px-1 mr-0.5"
-              />
-              <div className="text-xs text-white/50 mt-2 uppercase tracking-wide">
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
+          Real performance shown in the Performance section below.
+        </motion.p>
       </div>
 
       <motion.div

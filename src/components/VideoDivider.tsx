@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Counter from "./Counter";
-import { DIVIDER_VIDEO_URL, DIVIDER_FALLBACK_IMAGE } from "../lib/config";
+import { PERFORMANCE_BG_PHOTO } from "../lib/config";
 
 const CALLOUTS = [
   { value: 1240, suffix: "+", label: "Group matches modeled" },
@@ -11,64 +11,38 @@ const CALLOUTS = [
 
 export default function VideoDivider() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [videoFailed, setVideoFailed] = useState(false);
-  const [isMobile, setIsMobile] = useState(
-    () =>
-      window.matchMedia("(max-width: 640px)").matches ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  const [reduceMotion, setReduceMotion] = useState(
+    () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 640px)");
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const onChange = () => setIsMobile(mq.matches || reduceMotion.matches);
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReduceMotion(mq.matches);
     mq.addEventListener("change", onChange);
-    reduceMotion.addEventListener("change", onChange);
-    return () => {
-      mq.removeEventListener("change", onChange);
-      reduceMotion.removeEventListener("change", onChange);
-    };
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-
-  const showVideo = !isMobile && !videoFailed;
+  const textY = useTransform(scrollYProgress, [0, 1], reduceMotion ? ["0%", "0%"] : ["8%", "-8%"]);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[60vh] sm:h-[70vh] overflow-hidden border-y border-border"
+      className="relative h-[60vh] sm:h-[70vh] overflow-hidden border-y border-border bg-bg-soft"
     >
-      <motion.div className="absolute inset-0 -top-[12%] -bottom-[12%]" style={{ y }}>
-        {showVideo ? (
-          <video
-            className="size-full object-cover"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={DIVIDER_FALLBACK_IMAGE}
-            onError={() => setVideoFailed(true)}
-          >
-            <source src={DIVIDER_VIDEO_URL} type="video/mp4" />
-          </video>
-        ) : (
-          <img
-            src={DIVIDER_FALLBACK_IMAGE}
-            alt="Close-up table tennis rally"
-            className="size-full object-cover"
-          />
-        )}
-      </motion.div>
+      <div
+        className="absolute inset-0 bg-cover opacity-[0.07]"
+        style={{ backgroundImage: `url(${PERFORMANCE_BG_PHOTO})`, backgroundPosition: "center 35%" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg-soft via-transparent to-bg-soft" />
 
-      <div className="absolute inset-0 bg-gradient-to-b from-bg/90 via-bg/35 to-bg/90" />
-      <div className="absolute inset-0 bg-gradient-to-r from-bg/55 via-transparent to-bg/55" />
-
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5">
+      <motion.div
+        style={{ y: textY }}
+        className="relative z-10 h-full flex flex-col items-center justify-center text-center px-5"
+      >
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +85,7 @@ export default function VideoDivider() {
             </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

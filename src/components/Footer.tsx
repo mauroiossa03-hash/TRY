@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { BRAND_NAME, TELEGRAM_URL, INSTAGRAM_URL } from "../lib/config";
 
 export default function Footer() {
@@ -35,10 +34,8 @@ export default function Footer() {
             Connect
           </p>
           <ul className="space-y-2 text-sm text-text-dim">
-            <li><Link to="/telegram" className="hover:text-text transition-colors">Telegram Channel</Link></li>
-            <li><Link to="/instagram" className="hover:text-text transition-colors">Instagram</Link></li>
-            <li><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Direct Telegram Link</a></li>
-            <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Direct Instagram Link</a></li>
+            <li><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Telegram Channel</a></li>
+            <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Instagram</a></li>
           </ul>
         </div>
 

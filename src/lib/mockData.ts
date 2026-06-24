@@ -1,5 +1,9 @@
 // Mock performance data — replace with real tracked results.
 
+// Single source of truth: flip to false once real tracked results replace
+// every number derived from this file.
+export const IS_MOCK_DATA = true;
+
 export interface PnlPoint {
   signal: number;
   date: string;
