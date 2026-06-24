@@ -89,8 +89,13 @@
 
   .flap-char {
     display: inline-block;
-    animation: flap-in 120ms ease-out;
     transform-origin: 50% 50%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .flap-char {
+      animation: flap-in 120ms ease-out;
+    }
   }
 }
 
@@ -108,66 +113,3 @@
   }
 }
 
-.cpu-architecture {
-  offset-anchor: 10px 0px;
-  animation: animation-path;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
-
-.cpu-line-1 {
-  offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 15");
-  animation-duration: 2s;
-  animation-delay: 0.2s;
-}
-
-.cpu-line-2 {
-  offset-path: path("M 180 10 h -69.5 q -5 0 -5 5 v 25");
-  animation-duration: 2.5s;
-  animation-delay: 0.5s;
-}
-
-.cpu-line-3 {
-  offset-path: path("M 130 20 v 11.5 q 0 5 -5 5 h -10");
-  animation-duration: 2.2s;
-  animation-delay: 0.1s;
-}
-
-.cpu-line-4 {
-  offset-path: path("M 170 80 v -11.5 q 0 -5 -5 -5 h -50");
-  animation-duration: 1.8s;
-  animation-delay: 0.4s;
-}
-
-.cpu-line-5 {
-  offset-path: path("M 100 100 v -21.5 q 0 -5 5 -5 h 0");
-  animation-duration: 2.4s;
-  animation-delay: 0.3s;
-}
-
-.cpu-line-6 {
-  offset-path: path("M 50 100 v -21.5 q 0 -5 -5 -5 h 40");
-  animation-duration: 2.1s;
-  animation-delay: 0.6s;
-}
-
-.cpu-line-7 {
-  offset-path: path("M 110 100 v -10 q 0 -5 5 -5 h 0");
-  animation-duration: 1.9s;
-  animation-delay: 0.15s;
-}
-
-.cpu-line-8 {
-  offset-path: path("M 90 100 v -10 q 0 -5 -5 -5 h 0");
-  animation-duration: 2.3s;
-  animation-delay: 0.45s;
-}
-
-@keyframes animation-path {
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
-}

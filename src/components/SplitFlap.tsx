@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { useReducedMotion } from "../lib/useReducedMotion";
 
 const DIGITS = "0123456789";
 const TICKS = 9;
@@ -22,12 +23,16 @@ interface SplitFlapProps {
 export default function SplitFlap({ value, className = "", cellClassName = "" }: SplitFlapProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
+  const reducedMotion = useReducedMotion();
+  const startedRef = useRef(false);
   const [display, setDisplay] = useState<string[]>(() =>
     value.split("").map((c) => (DIGITS.includes(c) ? "0" : c)),
   );
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || startedRef.current || reducedMotion) return;
+    startedRef.current = true;
+
     const targetChars = value.split("");
     const timeouts: number[] = [];
     targetChars.forEach((target, i) => {
@@ -45,11 +50,13 @@ export default function SplitFlap({ value, className = "", cellClassName = "" }:
       });
     });
     return () => timeouts.forEach(clearTimeout);
-  }, [inView, value]);
+  }, [inView, value, reducedMotion]);
+
+  const shown = reducedMotion ? value.split("") : display;
 
   return (
     <span ref={ref} className={`inline-flex ${className}`}>
-      {display.map((c, i) => (
+      {shown.map((c, i) => (
         <span key={i} className={`inline-block overflow-hidden ${cellClassName}`}>
           <span key={c} className="flap-char inline-block">
             {c}

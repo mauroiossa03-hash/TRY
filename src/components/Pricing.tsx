@@ -1,7 +1,6 @@
 import { Check, ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
-import BackgroundPaths from "./BackgroundPaths";
 import { TELEGRAM_URL } from "../lib/config";
 
 const PLANS = [
@@ -22,7 +21,7 @@ const PLANS = [
     name: "Quarterly",
     price: "39",
     period: "/mo",
-    billedAs: "billed $117 every 3 months",
+    billedAs: "billed €117 every 3 months",
     description: "Most members choose this plan.",
     highlight: true,
     features: [
@@ -36,7 +35,7 @@ const PLANS = [
     name: "Annual",
     price: "29",
     period: "/mo",
-    billedAs: "billed $348 every 12 months",
+    billedAs: "billed €348 every 12 months",
     description: "Best value for committed members.",
     highlight: false,
     features: [
@@ -50,10 +49,17 @@ const PLANS = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border overflow-hidden">
-      <BackgroundPaths className="opacity-50" />
+    <section id="pricing" aria-labelledby="pricing-heading" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse at top, color-mix(in srgb, var(--color-mint) 8%, transparent), transparent 60%)",
+        }}
+      />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          id="pricing-heading"
           align="center"
           eyebrow="Pricing"
           title="Subscribe. Get verified. Get signals."
@@ -79,7 +85,7 @@ export default function Pricing() {
                 <p className="text-sm text-text-dim mt-1 mb-6">{plan.description}</p>
                 <div className="flex items-baseline gap-1">
                   <span className="font-mono-tabular text-4xl text-text font-semibold">
-                    ${plan.price}
+                    €{plan.price}
                   </span>
                   <span className="text-text-faint text-sm">{plan.period}</span>
                 </div>

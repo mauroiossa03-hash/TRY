@@ -26,9 +26,10 @@ const STAT_CARDS = [
 
 export default function Performance() {
   return (
-    <section id="performance" className="relative py-24 sm:py-32 bg-bg border-t border-border">
+    <section id="performance" aria-labelledby="performance-heading" className="relative py-24 sm:py-32 bg-bg border-t border-border">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          id="performance-heading"
           eyebrow="Performance"
           title="Tracked since day one. No survivorship bias."
           description="Every signal we've sent is logged here — wins, losses, and the cumulative result. Mock data shown below; swap in your own tracked figures."

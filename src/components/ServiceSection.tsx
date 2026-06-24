@@ -40,9 +40,10 @@ function resultBadge(result: string) {
 
 export default function ServiceSection() {
   return (
-    <section id="service" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border">
+    <section id="service" aria-labelledby="service-heading" className="relative py-24 sm:py-32 bg-bg-soft border-t border-border">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          id="service-heading"
           eyebrow="The Service"
           title="A signal desk, not a tipster group."
           description="Members subscribe to receive automated, data-driven betting signals for table tennis — delivered with the same rigor and transparency you'd expect from a quant trading desk."

@@ -5,6 +5,7 @@ interface SectionHeadingProps {
   title: string;
   description?: string;
   align?: "left" | "center";
+  id?: string;
 }
 
 export default function SectionHeading({
@@ -12,6 +13,7 @@ export default function SectionHeading({
   title,
   description,
   align = "left",
+  id,
 }: SectionHeadingProps) {
   return (
     <ScrollReveal
@@ -25,7 +27,7 @@ export default function SectionHeading({
         <span className="h-px w-6 bg-mint" />
         {eyebrow}
       </div>
-      <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text">
+      <h2 id={id} className="text-3xl sm:text-4xl font-semibold tracking-tight text-text">
         {title}
       </h2>
       {description && (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft } from "lucide-react";
@@ -11,7 +11,6 @@ interface RedirectPageProps {
   handle: string;
   description: string;
   url: string;
-  delaySeconds?: number;
 }
 
 export default function RedirectPage({
@@ -21,20 +20,8 @@ export default function RedirectPage({
   handle,
   description,
   url,
-  delaySeconds = 4,
 }: RedirectPageProps) {
-  const [secondsLeft, setSecondsLeft] = useState(delaySeconds);
-
-  useEffect(() => {
-    if (secondsLeft <= 0) {
-      window.location.href = url;
-      return;
-    }
-    const timer = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
-    return () => clearTimeout(timer);
-  }, [secondsLeft, url]);
-
-  const progress = ((delaySeconds - secondsLeft) / delaySeconds) * 100;
+  const [opened, setOpened] = useState(false);
 
   return (
     <main className="relative min-h-screen flex items-center justify-center bg-bg bg-grid px-5 py-24">
@@ -54,7 +41,7 @@ export default function RedirectPage({
         </div>
 
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-faint mb-2">
-          Redirecting to {label}
+          Continue to {label}
         </p>
         <h1 className="text-2xl font-semibold text-text mb-2">{handle}</h1>
         <p className="text-sm text-text-dim leading-relaxed mb-8">{description}</p>
@@ -62,8 +49,10 @@ export default function RedirectPage({
         <div className="h-1 w-full rounded-full bg-surface-2 overflow-hidden mb-6">
           <motion.div
             className="h-full rounded-full"
-            style={{ backgroundColor: brandColor, width: `${progress}%` }}
-            transition={{ ease: "linear" }}
+            style={{ backgroundColor: brandColor }}
+            initial={{ width: "0%" }}
+            animate={{ width: opened ? "100%" : "0%" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           />
         </div>
 
@@ -71,16 +60,13 @@ export default function RedirectPage({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => setOpened(true)}
           className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-[#03130f] transition-opacity hover:opacity-90"
           style={{ backgroundColor: brandColor }}
         >
           Open {label} now
           <ArrowUpRight className="size-3.5" />
         </a>
-
-        <p className="text-xs text-text-faint mt-4 font-mono-tabular">
-          {secondsLeft > 0 ? `Redirecting in ${secondsLeft}s...` : "Redirecting..."}
-        </p>
 
         <Link
           to="/"

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
 import type { PnlPoint } from "../lib/mockData";
+import { useReducedMotion } from "../lib/useReducedMotion";
 
 const PADDING = { top: 16, right: 12, bottom: 28, left: 38 };
 
@@ -15,6 +16,7 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
   const trailRef = useRef<SVGPathElement>(null);
   const ballRef = useRef<SVGCircleElement>(null);
   const inView = useInView(containerRef, { once: true, margin: "-100px" });
+  const reducedMotion = useReducedMotion();
   const startedRef = useRef(false);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [hover, setHover] = useState<{ x: number; y: number; point: PnlPoint } | null>(null);
@@ -60,8 +62,18 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
     if (!path || !trail || !ball) return;
     const totalLength = path.getTotalLength();
     trail.style.strokeDasharray = `${totalLength}`;
-    trail.style.strokeDashoffset = `${totalLength}`;
     ball.style.opacity = "1";
+
+    if (reducedMotion) {
+      trail.style.strokeDashoffset = "0";
+      const end = path.getPointAtLength(totalLength);
+      ball.setAttribute("cx", `${end.x}`);
+      ball.setAttribute("cy", `${end.y}`);
+      ball.style.opacity = "0.85";
+      return;
+    }
+
+    trail.style.strokeDashoffset = `${totalLength}`;
 
     const controls = animate(0, 1, {
       duration: 2.4,
@@ -78,7 +90,7 @@ export default function EquityCurveBall({ data, className = "" }: EquityCurveBal
       },
     });
     return () => controls.stop();
-  }, [inView, width, height]);
+  }, [inView, width, height, reducedMotion]);
 
   return (
     <div ref={containerRef} className={`relative ${className}`}>

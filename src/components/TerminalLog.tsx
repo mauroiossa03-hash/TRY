@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { useReducedMotion } from "../lib/useReducedMotion";
 
 const LOG_LINES = [
   "SCRAPE      czech-liga-pro/group-4 ........... ok",
@@ -17,11 +18,12 @@ const TICK_MS = 850;
 export default function TerminalLog({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-80px" });
+  const reducedMotion = useReducedMotion();
   const [count, setCount] = useState(0);
   const [baseTime, setBaseTime] = useState(() => new Date());
 
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || reducedMotion) return;
     const interval = window.setInterval(() => {
       setCount((c) => {
         if (c >= LOG_LINES.length) {
@@ -32,9 +34,9 @@ export default function TerminalLog({ className = "" }: { className?: string }) 
       });
     }, TICK_MS);
     return () => clearInterval(interval);
-  }, [inView]);
+  }, [inView, reducedMotion]);
 
-  const visible = LOG_LINES.slice(0, count);
+  const visible = reducedMotion ? LOG_LINES : LOG_LINES.slice(0, count);
 
   return (
     <div
@@ -58,7 +60,9 @@ export default function TerminalLog({ className = "" }: { className?: string }) 
             </div>
           );
         })}
-        <span className="inline-block w-2 h-3.5 bg-mint align-middle animate-pulse" />
+        <span
+          className={`inline-block w-2 h-3.5 bg-mint align-middle ${reducedMotion ? "" : "animate-pulse"}`}
+        />
       </div>
     </div>
   );

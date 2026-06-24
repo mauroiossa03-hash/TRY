@@ -33,11 +33,29 @@ const STEPS = [
   },
 ];
 
+const STRATEGIES = [
+  {
+    name: "STRATEGY 01",
+    title: "Third match",
+    oddsBand: "1.65 – 2.10",
+    impliedProbability: "48% – 61%",
+    liveSince: "Sep 2025",
+  },
+  {
+    name: "STRATEGY 02",
+    title: "Decider",
+    oddsBand: "1.80 – 2.40",
+    impliedProbability: "42% – 56%",
+    liveSince: "Sep 2025",
+  },
+];
+
 export default function ApproachSection() {
   return (
-    <section id="approach" className="relative py-24 sm:py-32 bg-bg border-t border-border">
+    <section id="approach" aria-labelledby="approach-heading" className="relative py-24 sm:py-32 bg-bg border-t border-border">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
+          id="approach-heading"
           eyebrow="What We Do"
           title="The edge lives in round-robin group dynamics."
           description="Single-elimination markets are heavily scrutinized. Round-robin group stages — where every player faces every other player in sequence — create structural inefficiencies that are far less efficiently priced."
@@ -66,7 +84,31 @@ export default function ApproachSection() {
           ))}
         </div>
 
-        <ScrollReveal delay={0.3} className="mt-10">
+        <ScrollReveal delay={0.25} className="mt-10">
+          <div className="grid sm:grid-cols-2 gap-6">
+            {STRATEGIES.map((strategy) => (
+              <div
+                key={strategy.name}
+                className="rounded-2xl border border-border bg-surface p-6 sm:p-7"
+              >
+                <p className="font-mono text-xs tracking-[0.18em] text-mint uppercase mb-1">
+                  {strategy.name}
+                </p>
+                <h4 className="text-lg text-text font-medium mb-4">{strategy.title}</h4>
+                <dl className="grid grid-cols-2 gap-y-3 text-sm">
+                  <dt className="text-text-faint">Odds band</dt>
+                  <dd className="font-mono-tabular text-text text-right">{strategy.oddsBand}</dd>
+                  <dt className="text-text-faint">Implied probability</dt>
+                  <dd className="font-mono-tabular text-text text-right">{strategy.impliedProbability}</dd>
+                  <dt className="text-text-faint">Live since</dt>
+                  <dd className="font-mono-tabular text-text text-right">{strategy.liveSince}</dd>
+                </dl>
+              </div>
+            ))}
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.35} className="mt-10">
           <div className="rounded-2xl border border-mint/20 bg-mint/5 p-6 sm:p-8 flex flex-col sm:flex-row gap-6 sm:items-center sm:justify-between">
             <p className="text-text-dim text-sm sm:text-base max-w-2xl">
               <span className="text-text font-medium">No discretionary picks.</span>{" "}
