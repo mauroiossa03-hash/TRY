@@ -1,8 +1,10 @@
-# SPINEDGE
+# Quantitative Betting
+
+> Data-Driven. Advantage Playing.
 
 Marketing site for a quantitative betting signal service focused on
 table tennis round-robin markets (Czech Liga Pro, TT Cup). Built with
-React, TypeScript, Vite, Tailwind v4, Framer Motion, and Recharts.
+React, TypeScript, Vite, Tailwind v4, and Framer Motion.
 
 ## Develop
 
@@ -10,6 +12,14 @@ React, TypeScript, Vite, Tailwind v4, Framer Motion, and Recharts.
 npm install
 npm run dev
 ```
+
+## Brand
+
+- Emblem mark: `src/components/Logo.tsx` (also `public/favicon.svg` and
+  `public/apple-touch-icon.png`) — a red paddle with a Gaussian curve over a
+  probability histogram.
+- Palette and brand name live in `src/index.css` (`@theme` tokens) and
+  `src/lib/config.ts` (`BRAND_NAME`, `BRAND_TAGLINE`).
 
 ## Placeholders to swap before launch
 
@@ -25,6 +35,6 @@ with real tracked results when available.
 
 ## Pages
 
-- `/` — hero, service, approach, strategy matrix, performance, pricing.
+- `/` — hero, service, approach, performance, pricing.
 - `/telegram` — branded redirect to the Telegram channel.
 - `/instagram` — branded redirect to the Instagram profile.

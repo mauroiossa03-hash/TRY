@@ -46,7 +46,7 @@ export default function TerminalLog({ className = "" }: { className?: string }) 
       <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-surface-2/60">
         <span className="size-2.5 rounded-full bg-red/70" />
         <span className="size-2.5 rounded-full bg-amber/70" />
-        <span className="size-2.5 rounded-full bg-mint/70" />
+        <span className="size-2.5 rounded-full bg-up/70" />
         <span className="ml-3 font-mono text-xs text-text-faint">signal-engine.log</span>
       </div>
       <div className="p-5 sm:p-6 font-mono text-[13px] leading-relaxed min-h-[260px]">

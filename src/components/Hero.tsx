@@ -62,8 +62,8 @@ export default function Hero() {
           className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 mb-8"
         >
           <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full rounded-full bg-mint opacity-75 animate-ping" />
-            <span className="relative inline-flex size-2 rounded-full bg-mint" />
+            <span className="absolute inline-flex size-full rounded-full bg-red opacity-75 animate-ping" />
+            <span className="relative inline-flex size-2 rounded-full bg-red" />
           </span>
           <span className="font-mono text-xs tracking-wide text-white/80">
             {IS_MOCK_DATA

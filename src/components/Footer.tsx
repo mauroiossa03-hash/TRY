@@ -1,16 +1,20 @@
-import { BRAND_NAME, TELEGRAM_URL, INSTAGRAM_URL } from "../lib/config";
+import Logo from "./Logo";
+import { BRAND_NAME, BRAND_TAGLINE, TELEGRAM_URL, INSTAGRAM_URL } from "../lib/config";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-bg-soft">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2 mb-3">
-            <span className="size-2 rounded-full bg-mint" />
-            <span className="font-mono text-sm tracking-[0.18em] text-text">
-              {BRAND_NAME}
+          <div className="flex items-center gap-2.5 mb-2">
+            <Logo className="size-8 shrink-0" />
+            <span className="font-semibold tracking-tight text-base text-text leading-none">
+              Quantitative <span className="text-mint">Betting</span>
             </span>
           </div>
+          <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-text-faint mb-3">
+            {BRAND_TAGLINE}
+          </p>
           <p className="text-sm text-text-dim max-w-xs">
             Quantitative betting signals for table tennis round-robin
             markets. Tracked, verified, delivered live.

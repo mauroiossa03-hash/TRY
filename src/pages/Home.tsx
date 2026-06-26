@@ -9,7 +9,7 @@ import JoinCTA from "../components/JoinCTA";
 import { useDocTitle } from "../lib/useDocTitle";
 
 export default function Home() {
-  useDocTitle("SPINEDGE — Quant Signals for Table Tennis");
+  useDocTitle("Quantitative Betting — Data-Driven Table Tennis Signals");
 
   return (
     <>

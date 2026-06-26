@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { IS_MOCK_DATA } from "../lib/mockData";
 
-const STORAGE_KEY = "spinedge-demo-banner-dismissed";
+const STORAGE_KEY = "qb-demo-banner-dismissed";
 
 export default function DemoBanner() {
   const [dismissed, setDismissed] = useState(

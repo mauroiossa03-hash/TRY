@@ -1,7 +1,7 @@
 // Central place for placeholder links/media — swap these for your real assets.
 
-export const TELEGRAM_URL = "https://t.me/your_channel_here";
-export const INSTAGRAM_URL = "https://instagram.com/your_profile_here";
+export const TELEGRAM_URL = "https://t.me/quantitativebetting";
+export const INSTAGRAM_URL = "https://instagram.com/quantitative.betting";
 
 // Hero background — full-bleed rally footage behind the headline.
 export const HERO_VIDEO_URL = "/videos/hero-loop.mp4";
@@ -11,4 +11,5 @@ export const HERO_FALLBACK_IMAGE = "/images/hero-fallback.jpg";
 // stat cards and equity curve panel.
 export const PERFORMANCE_BG_PHOTO = "/images/racket-blade.png";
 
-export const BRAND_NAME = "SPINEDGE";
+export const BRAND_NAME = "Quantitative Betting";
+export const BRAND_TAGLINE = "Data-Driven. Advantage Playing.";

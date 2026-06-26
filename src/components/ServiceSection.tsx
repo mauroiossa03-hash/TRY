@@ -32,7 +32,7 @@ const FEATURES = [
 
 function resultBadge(result: string) {
   if (result === "win")
-    return "bg-mint/10 text-mint border-mint/30";
+    return "bg-up/10 text-up border-up/30";
   if (result === "loss")
     return "bg-red/10 text-red border-red/30";
   return "bg-amber/10 text-amber border-amber/30";
@@ -69,13 +69,13 @@ export default function ServiceSection() {
           <div className="rounded-2xl border border-border bg-surface overflow-hidden">
             <div className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-border">
               <div className="flex items-center gap-2">
-                <span className="size-2 rounded-full bg-mint animate-pulse" />
+                <span className="size-2 rounded-full bg-red animate-pulse" />
                 <span className="font-mono text-xs text-text-dim tracking-wide">
                   #signal-feed &middot; live preview
                 </span>
               </div>
               <span className="text-xs text-text-faint font-mono-tabular">
-                @{`spinedge_signals`}
+                @{`quantitativebetting`}
               </span>
             </div>
             <div className="divide-y divide-border">

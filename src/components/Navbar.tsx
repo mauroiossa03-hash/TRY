@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { BRAND_NAME, TELEGRAM_URL } from "../lib/config";
+import Logo from "./Logo";
+import { TELEGRAM_URL } from "../lib/config";
 
 const NAV_LINKS = [
   { label: "Service", href: "/#service" },
@@ -38,10 +39,10 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-5 sm:px-8 h-16 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="size-2 rounded-full bg-mint group-hover:scale-125 transition-transform" />
-          <span className="font-mono text-sm tracking-[0.18em] text-text">
-            {BRAND_NAME}
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <Logo className="size-8 shrink-0 transition-transform group-hover:scale-105" />
+          <span className="font-semibold tracking-tight text-[15px] sm:text-base text-text leading-none">
+            Quantitative <span className="text-mint">Betting</span>
           </span>
         </Link>
 
