@@ -1,21 +1,28 @@
 interface LogoProps {
   className?: string;
   title?: string;
+  /** Render purely as decoration (hidden from assistive tech). */
+  decorative?: boolean;
 }
 
 /**
  * Quantitative Betting emblem mark — a red table-tennis paddle with a
  * peach probability histogram on a baseline shelf and a black Gaussian
  * curve across its face. Pure SVG so it stays crisp at any size
- * (navbar, footer, favicon).
+ * (navbar, footer, favicon, section backdrops).
  */
-export default function Logo({ className = "", title = "Quantitative Betting" }: LogoProps) {
+export default function Logo({
+  className = "",
+  title = "Quantitative Betting",
+  decorative = false,
+}: LogoProps) {
   return (
     <svg
       viewBox="0 0 100 100"
       className={className}
-      role="img"
-      aria-label={title}
+      role={decorative ? undefined : "img"}
+      aria-label={decorative ? undefined : title}
+      aria-hidden={decorative ? true : undefined}
       xmlns="http://www.w3.org/2000/svg"
     >
       {/* wood blade behind the head: stripe + highlight */}

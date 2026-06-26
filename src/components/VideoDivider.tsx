@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Counter from "./Counter";
-import { PERFORMANCE_BG_PHOTO } from "../lib/config";
+import Logo from "./Logo";
 
 const CALLOUTS = [
   { value: 1240, suffix: "+", label: "Group matches modeled" },
@@ -33,10 +33,9 @@ export default function VideoDivider() {
       ref={sectionRef}
       className="relative h-[60vh] sm:h-[70vh] overflow-hidden border-y border-border bg-bg-soft"
     >
-      <div
-        className="absolute inset-0 bg-cover opacity-[0.07]"
-        style={{ backgroundImage: `url(${PERFORMANCE_BG_PHOTO})`, backgroundPosition: "center 35%" }}
-      />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+        <Logo decorative className="h-[180%] w-auto opacity-[0.06]" />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-b from-bg-soft via-transparent to-bg-soft" />
 
       <motion.div

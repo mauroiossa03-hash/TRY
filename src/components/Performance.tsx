@@ -2,8 +2,8 @@ import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import SplitFlap from "./SplitFlap";
 import EquityCurveBall from "./EquityCurveBall";
+import Logo from "./Logo";
 import { PNL_SERIES, PERFORMANCE_STATS } from "../lib/mockData";
-import { PERFORMANCE_BG_PHOTO } from "../lib/config";
 
 const STAT_CARDS = [
   {
@@ -35,30 +35,26 @@ export default function Performance() {
           description="Every signal we've sent is logged here — wins, losses, and the cumulative result. Mock data shown below; swap in your own tracked figures."
         />
 
-        <ScrollReveal delay={0.05} className="relative mt-14 rounded-3xl overflow-hidden">
-          <div
-            className="absolute inset-0 bg-cover"
-            style={{
-              backgroundImage: `url(${PERFORMANCE_BG_PHOTO})`,
-              backgroundSize: "220% auto",
-              backgroundPosition: "center 32%",
-            }}
-          />
-          <div className="absolute inset-0 bg-black/65" />
+        <ScrollReveal delay={0.05} className="relative mt-14 rounded-3xl overflow-hidden border border-border bg-bg-soft">
+          {/* emblem backdrop — the paddle + distribution from the logo */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
+            <Logo decorative className="h-[165%] w-auto opacity-20" />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/10 to-white/30" />
 
           <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 p-5 sm:p-6">
             {STAT_CARDS.map((stat) => (
               <div
                 key={stat.label}
-                className="group rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 hover:border-mint/40 hover:-translate-y-1 transition-all duration-300"
+                className="group rounded-2xl border border-border bg-white/70 backdrop-blur-sm p-6 hover:border-mint/40 hover:-translate-y-1 transition-all duration-300"
               >
-                <p className="text-xs uppercase tracking-wide text-white/55 mb-3">
+                <p className="text-xs uppercase tracking-wide text-text-faint mb-3">
                   {stat.label}
                 </p>
                 <SplitFlap
                   value={stat.value}
-                  className="text-3xl text-white font-semibold"
-                  cellClassName="rounded-sm bg-white/10 border border-white/20 px-1 mr-0.5"
+                  className="text-3xl text-text font-semibold"
+                  cellClassName="rounded-sm bg-black/[0.04] border border-black/10 px-1 mr-0.5"
                 />
               </div>
             ))}

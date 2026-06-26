@@ -7,7 +7,6 @@ import { TELEGRAM_URL } from "../lib/config";
 
 const NAV_LINKS = [
   { label: "Service", href: "/#service" },
-  { label: "Approach", href: "/#approach" },
   { label: "Performance", href: "/#performance" },
   { label: "Pricing", href: "/#pricing" },
 ];

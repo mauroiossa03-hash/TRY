@@ -1,6 +1,5 @@
 import Hero from "../components/Hero";
 import ServiceSection from "../components/ServiceSection";
-import ApproachSection from "../components/ApproachSection";
 import EngineLog from "../components/EngineLog";
 import VideoDivider from "../components/VideoDivider";
 import Performance from "../components/Performance";
@@ -15,7 +14,6 @@ export default function Home() {
     <>
       <Hero />
       <ServiceSection />
-      <ApproachSection />
       <EngineLog />
       <VideoDivider />
       <Performance />
