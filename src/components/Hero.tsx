@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
-import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL } from "../lib/config";
+import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL, BRAND_TAGLINE } from "../lib/config";
 import { IS_MOCK_DATA } from "../lib/mockData";
 
 export default function Hero() {
@@ -78,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="text-white text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]"
         >
-          Quant signals for table tennis. Tracked like a trading desk.
+          Quantitative betting signals for table tennis. Tracked like a trading desk.
         </motion.h1>
 
         <motion.p
@@ -114,14 +114,18 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 text-xs text-white/50 uppercase tracking-wide"
+          className="mt-16 flex items-center justify-center gap-3 text-white/55"
         >
-          Real performance shown in the Performance section below.
-        </motion.p>
+          <span className="h-px w-8 bg-white/25" />
+          <span className="font-mono text-xs uppercase tracking-[0.22em]">
+            {BRAND_TAGLINE}
+          </span>
+          <span className="h-px w-8 bg-white/25" />
+        </motion.div>
       </div>
 
       <motion.div
