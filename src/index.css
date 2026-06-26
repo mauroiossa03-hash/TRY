@@ -4,32 +4,30 @@
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
 
-  /* Warm cream base — echoes the emblem background */
-  --color-bg: #faf8f4;
-  --color-bg-soft: #f2ede4;
+  /* White base — matches the logo background */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f5f3;
   --color-surface: #ffffff;
-  --color-surface-2: #ece4d8;
-  --color-border: #e7ded0;
-  --color-edge: #d6cbb8;
+  --color-surface-2: #f0eeea;
+  --color-border: #eae6e1;
+  --color-edge: #d9d3cb;
 
-  /* Brand accent — deep navy from the "Quantitative Betting" wordmark.
-     Kept under the `mint` token name so existing brand utilities follow. */
-  --color-mint: #1e3a63;
-  --color-mint-dim: #15294a;
+  /* Brand accent — paddle red. Kept under the `mint` token name so all
+     existing brand utilities (bg-mint / text-mint / glow-mint) follow. */
+  --color-mint: #d83a2f;
+  --color-mint-dim: #b62d24;
 
-  /* Paddle red — energy accent + loss semantics */
-  --color-red: #d23a2f;
-  /* Pending / caution */
-  --color-amber: #b45309;
-  /* Positive / win semantics */
-  --color-up: #1a9750;
-  /* Peach — soft accent from the histogram bars */
-  --color-peach: #f2b48f;
+  /* Red energy accent (live dots, win) — same hue as the brand */
+  --color-red: #d83a2f;
+  /* Light orange — secondary accent, pending / caution */
+  --color-amber: #e8843a;
+  /* Soft peach from the histogram bars — decorative fills */
+  --color-peach: #f4bd9b;
 
-  /* Ink — dark navy, warmer than pure black to sit on cream */
-  --color-text: #16202f;
-  --color-text-dim: #4a5567;
-  --color-text-faint: #6c7486;
+  /* Ink — near-black, like the bell curve and wordmark */
+  --color-text: #161719;
+  --color-text-dim: #4d4f54;
+  --color-text-faint: #80838a;
 }
 
 @layer base {
@@ -82,20 +80,20 @@
 
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(22, 32, 47, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(22, 32, 47, 0.05) 1px, transparent 1px);
+      linear-gradient(to right, rgba(20, 20, 22, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(20, 20, 22, 0.045) 1px, transparent 1px);
     background-size: 48px 48px;
   }
 
   .text-gradient {
-    background: linear-gradient(135deg, #16202f 0%, #1e3a63 60%, #45597e 100%);
+    background: linear-gradient(135deg, #161719 0%, #d83a2f 70%, #e8843a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
 
   .glow-mint {
-    box-shadow: 0 0 0 1px rgba(30, 58, 99, 0.22), 0 0 40px -10px rgba(30, 58, 99, 0.35);
+    box-shadow: 0 0 0 1px rgba(216, 58, 47, 0.25), 0 0 40px -10px rgba(216, 58, 47, 0.4);
   }
 
   .flap-char {

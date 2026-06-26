@@ -5,41 +5,48 @@ interface LogoProps {
 
 /**
  * Quantitative Betting emblem mark — a red table-tennis paddle with a
- * peach probability histogram and a Gaussian curve across its face.
- * Pure SVG so it stays crisp at any size (navbar, footer, favicon).
+ * peach probability histogram on a baseline shelf and a black Gaussian
+ * curve across its face. Pure SVG so it stays crisp at any size
+ * (navbar, footer, favicon).
  */
 export default function Logo({ className = "", title = "Quantitative Betting" }: LogoProps) {
   return (
     <svg
-      viewBox="0 0 80 80"
+      viewBox="0 0 100 100"
       className={className}
       role="img"
       aria-label={title}
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* paddle handle (wood blade + navy stripe) */}
-      <rect x="33.5" y="49" width="13" height="25" rx="4" fill="#d8c39f" />
-      <rect x="37.7" y="49" width="4.6" height="25" rx="2.3" fill="#1b2a4a" />
+      {/* wood blade behind the head: stripe + highlight */}
+      <rect x="42" y="60" width="16" height="33" rx="5" fill="#d9c3a0" />
+      <rect x="48.3" y="60" width="3.6" height="33" fill="#2b3440" />
+      <rect x="52.3" y="60" width="1.5" height="33" fill="#f2efe9" />
 
-      {/* paddle head: cream rim + red rubber */}
-      <circle cx="40" cy="33" r="24.5" fill="#efe6d6" />
-      <circle cx="40" cy="33" r="23" fill="#d23a2f" />
+      {/* paddle head: pale-wood rim + red rubber */}
+      <ellipse cx="50" cy="38" rx="33.5" ry="34.5" fill="#e9d9bf" />
+      <ellipse cx="50" cy="38" rx="32" ry="33" fill="#d83a2f" />
 
-      {/* probability histogram (peach bars) */}
+      {/* baseline shelf the bars and curve rest on */}
+      <rect x="8" y="61.5" width="84" height="4.5" rx="2.25" fill="#e9c49e" />
+
+      {/* probability histogram (peach / light-orange bars) */}
       <g fill="#f4bd9b">
-        <rect x="21" y="35" width="6" height="11" rx="1" />
-        <rect x="29" y="26" width="6" height="20" rx="1" />
-        <rect x="37" y="18" width="6" height="28" rx="1" />
-        <rect x="45" y="26" width="6" height="20" rx="1" />
-        <rect x="53" y="35" width="6" height="11" rx="1" />
+        <rect x="20" y="50" width="6" height="12" rx="1" />
+        <rect x="29" y="40" width="6" height="22" rx="1" />
+        <rect x="38" y="30" width="6" height="32" rx="1" />
+        <rect x="47" y="22" width="6" height="40" rx="1" />
+        <rect x="56" y="30" width="6" height="32" rx="1" />
+        <rect x="65" y="40" width="6" height="22" rx="1" />
+        <rect x="74" y="50" width="6" height="12" rx="1" />
       </g>
 
       {/* Gaussian / bell curve */}
       <path
-        d="M14 44 C 25 44, 30 15, 40 15 C 50 15, 55 44, 66 44"
+        d="M9 60 C 27 60, 34 15, 50 15 C 66 15, 73 60, 91 60"
         fill="none"
-        stroke="#15202f"
-        strokeWidth="2.6"
+        stroke="#15171a"
+        strokeWidth="3.2"
         strokeLinecap="round"
       />
     </svg>

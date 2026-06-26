@@ -32,9 +32,9 @@ const FEATURES = [
 
 function resultBadge(result: string) {
   if (result === "win")
-    return "bg-up/10 text-up border-up/30";
-  if (result === "loss")
     return "bg-red/10 text-red border-red/30";
+  if (result === "loss")
+    return "bg-text/[0.06] text-text-dim border-text/20";
   return "bg-amber/10 text-amber border-amber/30";
 }
 
