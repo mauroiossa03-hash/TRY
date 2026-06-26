@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 
 const STAGES = [
-  { label: "SCRAPE", subtitle: "Live match & odds feed" },
-  { label: "GROUP STATE", subtitle: "Round-robin standings resolved" },
-  { label: "DE-MARGIN", subtitle: "Bookmaker margin stripped out" },
-  { label: "EDGE CHECK", subtitle: "Compare to model probability" },
-  { label: "FIRE", subtitle: "Signal sent to Telegram" },
+  { label: "SCRAPE", subtitle: "Feed live di match e quote" },
+  { label: "GROUP STATE", subtitle: "Classifica del girone risolta" },
+  { label: "DE-MARGIN", subtitle: "Margine del bookmaker rimosso" },
+  { label: "EDGE CHECK", subtitle: "Confronto con la probabilità del modello" },
+  { label: "FIRE", subtitle: "Segnale inviato su Telegram" },
 ];
 
 export default function SignalPipeline() {

@@ -44,7 +44,7 @@ export default function Hero() {
       ) : (
         <img
           src={HERO_FALLBACK_IMAGE}
-          alt="Table tennis rally"
+          alt="Scambio a tennistavolo"
           loading="eager"
           fetchPriority="high"
           className="absolute inset-0 size-full object-cover"
@@ -67,8 +67,8 @@ export default function Hero() {
           </span>
           <span className="font-mono text-xs tracking-wide text-white/80">
             {IS_MOCK_DATA
-              ? "DEMO · Czech Liga Pro & TT Cup"
-              : "Czech Liga Pro · TT Cup · 24/7 monitoring"}
+              ? "DEMO · Czech Liga Pro e TT Cup"
+              : "Czech Liga Pro · TT Cup · monitoraggio 24/7"}
           </span>
         </motion.div>
 
@@ -78,7 +78,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="text-white text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]"
         >
-          Quantitative betting signals for table tennis. Tracked like a trading desk.
+          Segnali di scommesse quantitative sul tennistavolo. Tracciati come un trading desk.
         </motion.h1>
 
         <motion.p
@@ -87,8 +87,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.22, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="mt-6 text-lg sm:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed"
         >
-          Edge-verified entries on Czech Liga Pro and TT Cup round-robin
-          matches. Tracked transparently. Delivered to Telegram.
+          Entrate con vantaggio verificato sui match a girone di Czech Liga
+          Pro e TT Cup. Tracciate in modo trasparente. Consegnate su Telegram.
         </motion.p>
 
         <motion.div
@@ -103,14 +103,14 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-mint px-6 py-3.5 text-base font-medium text-white hover:bg-mint-dim transition-colors glow-mint"
           >
-            Get signals on Telegram
+            Ricevi i segnali su Telegram
             <ArrowUpRight className="size-4" />
           </a>
           <a
             href="#performance"
             className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors"
           >
-            View track record
+            Vedi i risultati
           </a>
         </motion.div>
 

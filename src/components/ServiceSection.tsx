@@ -6,27 +6,27 @@ import { SIGNAL_EXAMPLES } from "../lib/mockData";
 const FEATURES = [
   {
     icon: Send,
-    title: "Real-time Telegram delivery",
+    title: "Consegna su Telegram in tempo reale",
     description:
-      "Every signal hits the channel the moment our models confirm an edge — before market odds adjust.",
+      "Ogni segnale arriva sul canale nel momento in cui i nostri modelli confermano un vantaggio — prima che le quote di mercato si aggiustino.",
   },
   {
     icon: Eye,
-    title: "Full transparency",
+    title: "Trasparenza totale",
     description:
-      "Entry, odds taken, strategy tag, and stake sizing are published with every signal. No black box.",
+      "Entrata, quota presa, tag della strategia e dimensione della puntata sono pubblicati con ogni segnale. Nessuna scatola nera.",
   },
   {
     icon: LineChart,
-    title: "Tracked PnL, always",
+    title: "PnL sempre tracciato",
     description:
-      "Every result is logged against the signal that produced it. Performance pages mirror the channel.",
+      "Ogni risultato è registrato insieme al segnale che l'ha generato. Le pagine delle performance rispecchiano il canale.",
   },
   {
     icon: ShieldCheck,
-    title: "Edge-verified before launch",
+    title: "Vantaggio verificato prima del lancio",
     description:
-      "Strategies are backtested and forward-tested in isolation before they're trusted with live capital.",
+      "Le strategie sono validate in backtest e forward-test in isolamento prima di operare con capitale reale.",
   },
 ];
 
@@ -44,9 +44,9 @@ export default function ServiceSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           id="service-heading"
-          eyebrow="The Service"
-          title="A signal desk, not a tipster group."
-          description="Members subscribe to receive automated, data-driven betting signals for table tennis — delivered with the same rigor and transparency you'd expect from a quant trading desk."
+          eyebrow="Il Servizio"
+          title="Un desk di segnali, non un gruppo di tipster."
+          description="Gli iscritti ricevono segnali di scommesse automatici e data-driven sul tennistavolo — con lo stesso rigore e la stessa trasparenza di un trading desk quantitativo."
         />
 
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -71,7 +71,7 @@ export default function ServiceSection() {
               <div className="flex items-center gap-2">
                 <span className="size-2 rounded-full bg-red animate-pulse" />
                 <span className="font-mono text-xs text-text-dim tracking-wide">
-                  #signal-feed &middot; live preview
+                  #segnali &middot; anteprima live
                 </span>
               </div>
               <span className="text-xs text-text-faint font-mono-tabular">

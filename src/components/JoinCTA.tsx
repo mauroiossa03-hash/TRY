@@ -9,9 +9,9 @@ export default function JoinCTA() {
         <SectionHeading
           id="join-heading"
           align="center"
-          eyebrow="Get Started"
-          title="Join the signal feed."
-          description="Real-time entries, tracked transparently, delivered where you already are."
+          eyebrow="Inizia"
+          title="Entra nel feed dei segnali."
+          description="Entrate in tempo reale, tracciate in modo trasparente, consegnate dove sei già."
         />
         <div className="mt-10 rounded-3xl border border-border bg-surface px-8 py-10 sm:px-12 sm:py-14">
           <a
@@ -20,11 +20,11 @@ export default function JoinCTA() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-mint px-7 py-3.5 text-base font-medium text-white hover:bg-mint-dim transition-colors glow-mint"
           >
-            Join on Telegram
+            Entra su Telegram
             <ArrowUpRight className="size-4" />
           </a>
           <p className="mt-4 text-xs text-text-faint">
-            Free preview channel · No signup required to peek
+            Canale di anteprima gratuito · Nessuna registrazione per dare un'occhiata
           </p>
         </div>
       </div>

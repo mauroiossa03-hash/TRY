@@ -5,44 +5,44 @@ import { TELEGRAM_URL } from "../lib/config";
 
 const PLANS = [
   {
-    name: "Monthly",
+    name: "Mensile",
     price: "49",
-    period: "/mo",
-    description: "Full access, billed monthly. Cancel anytime.",
+    period: "/mese",
+    description: "Accesso completo, fatturato mensilmente. Disdici quando vuoi.",
     highlight: false,
     features: [
-      "All live signals (3rd-Match + 6th-Decider)",
-      "Entry, odds, tag, and PnL on every signal",
-      "Real-time Telegram delivery",
-      "Access to performance dashboard",
+      "Tutti i segnali live (3ª partita + 6ª decisiva)",
+      "Entrata, quota, tag e PnL su ogni segnale",
+      "Consegna su Telegram in tempo reale",
+      "Accesso alla dashboard delle performance",
     ],
   },
   {
-    name: "Quarterly",
+    name: "Trimestrale",
     price: "39",
-    period: "/mo",
-    billedAs: "billed €117 every 3 months",
-    description: "Most members choose this plan.",
+    period: "/mese",
+    billedAs: "fatturato €117 ogni 3 mesi",
+    description: "Il piano scelto dalla maggior parte degli iscritti.",
     highlight: true,
     features: [
-      "Everything in Monthly",
-      "Priority access to new verified strategies",
-      "Weekly strategy performance recap",
-      "Direct line for support questions",
+      "Tutto del piano Mensile",
+      "Accesso prioritario alle nuove strategie verificate",
+      "Riepilogo settimanale delle performance per strategia",
+      "Linea diretta per le domande di supporto",
     ],
   },
   {
-    name: "Annual",
+    name: "Annuale",
     price: "29",
-    period: "/mo",
-    billedAs: "billed €348 every 12 months",
-    description: "Best value for committed members.",
+    period: "/mese",
+    billedAs: "fatturato €348 ogni 12 mesi",
+    description: "Il miglior rapporto qualità-prezzo per chi fa sul serio.",
     highlight: false,
     features: [
-      "Everything in Quarterly",
-      "Locked-in rate for 12 months",
-      "Early access to new tournament coverage",
-      "Quarterly 1:1 performance review",
+      "Tutto del piano Trimestrale",
+      "Prezzo bloccato per 12 mesi",
+      "Accesso anticipato a nuovi tornei",
+      "Review 1:1 trimestrale delle performance",
     ],
   },
 ];
@@ -61,9 +61,9 @@ export default function Pricing() {
         <SectionHeading
           id="pricing-heading"
           align="center"
-          eyebrow="Pricing"
-          title="Subscribe. Get verified. Get signals."
-          description="No lifetime deals, no discretionary upsells — just a subscription to a tracked, transparent signal feed."
+          eyebrow="Prezzi"
+          title="Abbonati. Verifica. Ricevi i segnali."
+          description="Niente offerte a vita, nessun upsell discrezionale — solo un abbonamento a un feed di segnali tracciato e trasparente."
         />
 
         <div className="mt-14 grid lg:grid-cols-3 gap-6 items-start">
@@ -78,7 +78,7 @@ export default function Pricing() {
               >
                 {plan.highlight && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-mint px-3 py-1 text-xs font-medium text-white">
-                    Most popular
+                    Più scelto
                   </span>
                 )}
                 <h3 className="text-text font-medium text-lg">{plan.name}</h3>
@@ -112,7 +112,7 @@ export default function Pricing() {
                       : "border border-edge text-text hover:bg-surface-2"
                   }`}
                 >
-                  Subscribe via Telegram
+                  Abbonati su Telegram
                   <ArrowUpRight className="size-3.5" />
                 </a>
               </div>
@@ -122,9 +122,9 @@ export default function Pricing() {
 
         <ScrollReveal delay={0.25} className="mt-10 text-center">
           <p className="text-xs text-text-faint max-w-xl mx-auto">
-            Subscriptions are processed through our Telegram bot. Signals are
-            for informational purposes only and do not constitute financial
-            advice. Past performance does not guarantee future results.
+            Gli abbonamenti sono gestiti tramite il nostro bot Telegram. I
+            segnali hanno solo scopo informativo e non costituiscono consulenza
+            finanziaria. I risultati passati non garantiscono risultati futuri.
           </p>
         </ScrollReveal>
       </div>

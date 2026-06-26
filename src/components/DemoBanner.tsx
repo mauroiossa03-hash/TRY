@@ -20,10 +20,10 @@ export default function DemoBanner() {
     <div className="sticky top-16 z-40 mt-16 bg-amber/10 border-b border-amber/30">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-2 flex items-center justify-between gap-4">
         <p className="font-mono text-xs text-amber">
-          DEMO DATA — performance figures below are illustrative, not real betting results
+          DATI DEMO — i numeri di performance qui sotto sono illustrativi, non risultati reali
         </p>
         <button
-          aria-label="Dismiss demo data notice"
+          aria-label="Chiudi l'avviso sui dati demo"
           onClick={dismiss}
           className="text-amber hover:opacity-70 transition-opacity shrink-0"
         >

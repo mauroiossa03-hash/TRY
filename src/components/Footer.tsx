@@ -16,48 +16,48 @@ export default function Footer() {
             {BRAND_TAGLINE}
           </p>
           <p className="text-sm text-text-dim max-w-xs">
-            Quantitative betting signals for table tennis round-robin
-            markets. Tracked, verified, delivered live.
+            Segnali di scommesse quantitative sui mercati a girone del
+            tennistavolo. Tracciati, verificati, consegnati live.
           </p>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-wider text-text-faint mb-3">
-            Navigate
+            Naviga
           </p>
           <ul className="space-y-2 text-sm text-text-dim">
-            <li><a href="/#service" className="hover:text-text transition-colors">The Service</a></li>
+            <li><a href="/#service" className="hover:text-text transition-colors">Il Servizio</a></li>
             <li><a href="/#performance" className="hover:text-text transition-colors">Performance</a></li>
-            <li><a href="/#pricing" className="hover:text-text transition-colors">Pricing</a></li>
+            <li><a href="/#pricing" className="hover:text-text transition-colors">Prezzi</a></li>
           </ul>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-wider text-text-faint mb-3">
-            Connect
+            Seguici
           </p>
           <ul className="space-y-2 text-sm text-text-dim">
-            <li><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Telegram Channel</a></li>
+            <li><a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Canale Telegram</a></li>
             <li><a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="hover:text-text transition-colors">Instagram</a></li>
           </ul>
         </div>
 
         <div>
           <p className="text-xs uppercase tracking-wider text-text-faint mb-3">
-            Disclaimer
+            Avvertenze
           </p>
           <p className="text-sm text-text-dim">
-            Signals are statistical estimates, not guarantees. Betting
-            involves risk of loss. Must be of legal age in your
-            jurisdiction. Bet responsibly.
+            I segnali sono stime statistiche, non garanzie. Le scommesse
+            comportano il rischio di perdite. Devi essere maggiorenne secondo
+            la tua giurisdizione. Gioca responsabilmente.
           </p>
         </div>
       </div>
 
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-text-faint">
-          <span>&copy; {new Date().getFullYear()} {BRAND_NAME}. All rights reserved.</span>
-          <span className="font-mono">v1.0 / edge-verified</span>
+          <span>&copy; {new Date().getFullYear()} {BRAND_NAME}. Tutti i diritti riservati.</span>
+          <span className="font-mono">v1.0 / vantaggio verificato</span>
         </div>
       </div>
     </footer>

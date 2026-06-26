@@ -7,11 +7,11 @@ import { PNL_SERIES, PERFORMANCE_STATS } from "../lib/mockData";
 
 const STAT_CARDS = [
   {
-    label: "Cumulative units",
+    label: "Unità cumulative",
     value: `+${PERFORMANCE_STATS.units.toFixed(2)}u`,
   },
   {
-    label: "Win rate",
+    label: "Tasso di vincita",
     value: `${(PERFORMANCE_STATS.winRate * 100).toFixed(1)}%`,
   },
   {
@@ -19,7 +19,7 @@ const STAT_CARDS = [
     value: `+${(PERFORMANCE_STATS.roi * 100).toFixed(1)}%`,
   },
   {
-    label: "Avg. odds taken",
+    label: "Quota media presa",
     value: PERFORMANCE_STATS.avgOdds.toFixed(2),
   },
 ];
@@ -31,8 +31,8 @@ export default function Performance() {
         <SectionHeading
           id="performance-heading"
           eyebrow="Performance"
-          title="Tracked since day one. No survivorship bias."
-          description="Every signal we've sent is logged here — wins, losses, and the cumulative result. Mock data shown below; swap in your own tracked figures."
+          title="Tracciato dal primo giorno. Nessun survivorship bias."
+          description="Ogni segnale inviato è registrato qui — vincite, perdite e risultato cumulativo. Dati dimostrativi qui sotto; sostituiscili con i tuoi risultati reali."
         />
 
         <ScrollReveal delay={0.05} className="relative mt-14 rounded-3xl overflow-hidden border border-border bg-bg-soft">
@@ -65,9 +65,9 @@ export default function Performance() {
           <div className="rounded-2xl border border-border bg-surface p-4 sm:p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <p className="text-sm text-text font-medium">Cumulative PnL (units)</p>
+                <p className="text-sm text-text font-medium">PnL cumulativo (unità)</p>
                 <p className="text-xs text-text-faint mt-1">
-                  {PERFORMANCE_STATS.totalSignals} signals &middot; Sept 2025 &ndash; present
+                  {PERFORMANCE_STATS.totalSignals} segnali &middot; Set 2025 &ndash; oggi
                 </p>
               </div>
               <span className="font-mono-tabular text-sm text-mint">

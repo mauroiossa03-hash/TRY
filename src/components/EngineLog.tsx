@@ -10,9 +10,9 @@ export default function EngineLog() {
         <SectionHeading
           id="engine-heading"
           align="center"
-          eyebrow="Under The Hood"
-          title="Watch the engine think."
-          description="Every signal traces a fixed pipeline — scrape, resolve group state, price the edge, fire. Nothing discretionary happens in between."
+          eyebrow="Sotto il cofano"
+          title="Guarda il motore ragionare."
+          description="Ogni segnale segue una pipeline fissa — raccolta dati, stato del girone, calcolo del vantaggio, invio. Nessuna decisione discrezionale nel mezzo."
         />
         <div className="mt-12 grid lg:grid-cols-2 gap-8 items-center">
           <ScrollReveal delay={0.1} className="flex items-center justify-center overflow-hidden rounded-2xl border border-border bg-surface p-8">

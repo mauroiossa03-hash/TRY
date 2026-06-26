@@ -12,7 +12,7 @@ export default function Instagram() {
       brandColor="#e1306c"
       label="Instagram"
       handle="@quantitative.betting"
-      description="Follow along for performance recaps, strategy breakdowns, and behind-the-scenes looks at the model."
+      description="Seguici per riepiloghi delle performance, analisi delle strategie e contenuti dietro le quinte sul modello."
       url={INSTAGRAM_URL}
     />
   );

@@ -4,9 +4,9 @@ import Counter from "./Counter";
 import Logo from "./Logo";
 
 const CALLOUTS = [
-  { value: 1240, suffix: "+", label: "Group matches modeled" },
-  { value: 2, suffix: "", label: "Live strategies" },
-  { value: 0.4, decimals: 1, suffix: "u", prefix: "≥", label: "Min. edge to fire" },
+  { value: 1240, suffix: "+", label: "Match di girone modellati" },
+  { value: 2, suffix: "", label: "Strategie live" },
+  { value: 0.4, decimals: 1, suffix: "u", prefix: "≥", label: "Vantaggio min. per l'invio" },
 ];
 
 export default function VideoDivider() {
@@ -49,7 +49,7 @@ export default function VideoDivider() {
           transition={{ duration: 0.6 }}
           className="font-mono text-xs uppercase tracking-[0.18em] text-mint mb-4"
         >
-          Discipline over instinct
+          Disciplina, non istinto
         </motion.p>
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function VideoDivider() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-gradient text-3xl sm:text-5xl font-semibold tracking-tight max-w-3xl leading-tight"
         >
-          Every match scenario is a rule. Every rule is backtested first.
+          Ogni scenario di match è una regola. Ogni regola è prima validata in backtest.
         </motion.h3>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 font-mono-tabular">

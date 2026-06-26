@@ -41,7 +41,7 @@ export default function RedirectPage({
         </div>
 
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-faint mb-2">
-          Continue to {label}
+Continua su {label}
         </p>
         <h1 className="text-2xl font-semibold text-text mb-2">{handle}</h1>
         <p className="text-sm text-text-dim leading-relaxed mb-8">{description}</p>
@@ -64,7 +64,7 @@ export default function RedirectPage({
           className="inline-flex w-full items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
           style={{ backgroundColor: brandColor }}
         >
-          Open {label} now
+          Apri {label} ora
           <ArrowUpRight className="size-3.5" />
         </a>
 
@@ -73,7 +73,7 @@ export default function RedirectPage({
           className="mt-6 inline-flex items-center gap-1.5 text-xs text-text-faint hover:text-text-dim transition-colors"
         >
           <ArrowLeft className="size-3.5" />
-          Back to home
+          Torna alla home
         </Link>
       </motion.div>
     </main>

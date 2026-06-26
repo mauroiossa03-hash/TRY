@@ -12,7 +12,7 @@ export default function Telegram() {
       brandColor="#229ed9"
       label="Telegram"
       handle="@quantitativebetting"
-      description="Join the channel to receive live, edge-verified table tennis signals with full entry, odds, and PnL transparency."
+      description="Entra nel canale per ricevere segnali live sul tennistavolo con vantaggio verificato e piena trasparenza su entrata, quote e PnL."
       url={TELEGRAM_URL}
     />
   );

@@ -8,7 +8,7 @@ import JoinCTA from "../components/JoinCTA";
 import { useDocTitle } from "../lib/useDocTitle";
 
 export default function Home() {
-  useDocTitle("Quantitative Betting — Data-Driven Table Tennis Signals");
+  useDocTitle("Quantitative Betting — Segnali di scommesse sul tennistavolo");
 
   return (
     <>

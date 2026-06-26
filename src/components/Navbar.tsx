@@ -6,9 +6,9 @@ import Logo from "./Logo";
 import { TELEGRAM_URL } from "../lib/config";
 
 const NAV_LINKS = [
-  { label: "Service", href: "/#service" },
+  { label: "Servizio", href: "/#service" },
   { label: "Performance", href: "/#performance" },
-  { label: "Pricing", href: "/#pricing" },
+  { label: "Prezzi", href: "/#pricing" },
 ];
 
 export default function Navbar() {
@@ -64,13 +64,13 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full bg-mint px-4 py-2 text-sm font-medium text-white hover:bg-mint-dim transition-colors"
           >
-            Join on Telegram
+            Entra su Telegram
             <ArrowUpRight className="size-3.5" />
           </a>
         </div>
 
         <button
-          aria-label="Toggle menu"
+          aria-label="Apri o chiudi il menu"
           className="md:hidden text-text p-2 -mr-2"
           onClick={() => setOpen((o) => !o)}
         >
@@ -103,7 +103,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-1.5 rounded-full bg-mint px-4 py-2.5 text-sm font-medium text-white mt-1"
               >
-                Join on Telegram
+                Entra su Telegram
                 <ArrowUpRight className="size-3.5" />
               </a>
             </div>

@@ -66,7 +66,7 @@ export interface SignalExample {
 export const SIGNAL_EXAMPLES: SignalExample[] = [
   {
     id: "SIG-0231",
-    tag: "3rd-Match",
+    tag: "3ª partita",
     tournament: "Czech Liga Pro",
     matchup: "Novak M. vs. Sykora P.",
     entry: "Novak M. to win",
@@ -76,7 +76,7 @@ export const SIGNAL_EXAMPLES: SignalExample[] = [
   },
   {
     id: "SIG-0230",
-    tag: "6th-Decider",
+    tag: "6ª decisiva",
     tournament: "TT Cup",
     matchup: "Kral J. vs. Dvorak T.",
     entry: "Kral J. to win",
@@ -86,7 +86,7 @@ export const SIGNAL_EXAMPLES: SignalExample[] = [
   },
   {
     id: "SIG-0229",
-    tag: "3rd-Match",
+    tag: "3ª partita",
     tournament: "Czech Liga Pro",
     matchup: "Benda L. vs. Marek O.",
     entry: "Marek O. to win",
@@ -96,7 +96,7 @@ export const SIGNAL_EXAMPLES: SignalExample[] = [
   },
   {
     id: "SIG-0228",
-    tag: "6th-Decider",
+    tag: "6ª decisiva",
     tournament: "TT Cup",
     matchup: "Horak R. vs. Cerny V.",
     entry: "Horak R. to win",
