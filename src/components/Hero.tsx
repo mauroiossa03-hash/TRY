@@ -76,20 +76,26 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="text-white text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05]"
+          className="text-white font-semibold tracking-tight leading-[1.02]"
         >
-          Segnali di scommesse quantitative sul tennistavolo. Tracciati come un trading desk.
+          <span className="block text-2xl sm:text-3xl lg:text-4xl font-medium text-white/85">
+            Metodi quantitativi sul
+          </span>
+          <span className="block mt-1 text-6xl sm:text-7xl lg:text-8xl text-mint">
+            table tennis
+          </span>
         </motion.h1>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.22, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="mt-6 text-lg sm:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed"
+          className="mt-6 flex items-center justify-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70"
         >
-          Entrate con vantaggio verificato sui match a girone di Czech Liga
-          Pro e TT Cup. Tracciate in modo trasparente. Consegnate su Telegram.
-        </motion.p>
+          <span>Czech Liga Pro</span>
+          <span className="text-mint/70">·</span>
+          <span>TT Cup</span>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -103,14 +109,14 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-mint px-6 py-3.5 text-base font-medium text-white hover:bg-mint-dim transition-colors glow-mint"
           >
-            Ricevi i segnali su Telegram
+            Guarda i segnali gratis
             <ArrowUpRight className="size-4" />
           </a>
           <a
-            href="#performance"
+            href="#service"
             className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors"
           >
-            Vedi i risultati
+            Come funziona
           </a>
         </motion.div>
 
