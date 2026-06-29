@@ -3,47 +3,67 @@ import ScrollReveal from "./ScrollReveal";
 import SplitFlap from "./SplitFlap";
 import EquityCurveBall from "./EquityCurveBall";
 import Logo from "./Logo";
-import { PNL_SERIES, PERFORMANCE_STATS } from "../lib/mockData";
+import { usePerformance } from "../lib/usePerformance";
 
-const STAT_CARDS = [
-  {
-    label: "Unità cumulative",
-    value: `+${PERFORMANCE_STATS.units.toFixed(2)}u`,
-  },
-  {
-    label: "Tasso di vincita",
-    value: `${(PERFORMANCE_STATS.winRate * 100).toFixed(1)}%`,
-  },
-  {
-    label: "ROI",
-    value: `+${(PERFORMANCE_STATS.roi * 100).toFixed(1)}%`,
-  },
-  {
-    label: "Quota media presa",
-    value: PERFORMANCE_STATS.avgOdds.toFixed(2),
-  },
+const MONTHS_IT = [
+  "gen", "feb", "mar", "apr", "mag", "giu",
+  "lug", "ago", "set", "ott", "nov", "dic",
 ];
 
+function fmtMonthYear(iso?: string): string | null {
+  if (!iso) return null;
+  const d = new Date(iso + "T00:00:00Z");
+  if (Number.isNaN(d.getTime())) return null;
+  return `${MONTHS_IT[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
 export default function Performance() {
+  const { series, stats, isMock, loading } = usePerformance();
+
+  const since = fmtMonthYear(stats.sinceDate) ?? "set 2025";
+  const last = fmtMonthYear(stats.lastDate) ?? "oggi";
+
+  const statCards = [
+    {
+      label: "Unità cumulative",
+      value: `${stats.units >= 0 ? "+" : ""}${stats.units.toFixed(2)}u`,
+    },
+    {
+      label: "Tasso di vincita",
+      value: `${(stats.winRate * 100).toFixed(1)}%`,
+    },
+    {
+      label: "Scommesse regolate",
+      value: `${stats.totalSignals}`,
+    },
+    {
+      label: "Tracciato da",
+      value: since,
+    },
+  ];
+
+  const description = isMock
+    ? "Ogni segnale regolato viene registrato qui — vincite, perdite e risultato cumulativo in unità. Dati dimostrativi in attesa del collegamento ai risultati reali."
+    : "Ogni segnale regolato viene registrato qui — vincite, perdite e risultato cumulativo in unità. Dati reali, aggiornati automaticamente.";
+
   return (
     <section id="performance" aria-labelledby="performance-heading" className="relative py-24 sm:py-32 bg-bg border-t border-border">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           id="performance-heading"
           eyebrow="Performance"
-          title="Tracciato dal primo giorno. Nessun survivorship bias."
-          description="Ogni segnale inviato è registrato qui — vincite, perdite e risultato cumulativo. Dati dimostrativi qui sotto; sostituiscili con i tuoi risultati reali."
+          title="Tracciato dal primo giorno."
+          description={description}
         />
 
         <ScrollReveal delay={0.05} className="relative mt-14 rounded-3xl overflow-hidden border border-border bg-bg-soft">
-          {/* emblem backdrop — the paddle + distribution from the logo */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
             <Logo decorative className="h-[165%] w-auto opacity-20" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-br from-white/45 via-white/10 to-white/30" />
 
           <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 p-5 sm:p-6">
-            {STAT_CARDS.map((stat) => (
+            {statCards.map((stat) => (
               <div
                 key={stat.label}
                 className="group rounded-2xl border border-border bg-white/70 backdrop-blur-sm p-6 hover:border-mint/40 hover:-translate-y-1 transition-all duration-300"
@@ -67,14 +87,18 @@ export default function Performance() {
               <div>
                 <p className="text-sm text-text font-medium">PnL cumulativo (unità)</p>
                 <p className="text-xs text-text-faint mt-1">
-                  {PERFORMANCE_STATS.totalSignals} segnali &middot; Set 2025 &ndash; oggi
+                  {stats.totalSignals} segnali &middot; {since} &ndash; {last}
+                  {isMock && " · demo"}
                 </p>
               </div>
               <span className="font-mono-tabular text-sm text-mint">
-                +{PERFORMANCE_STATS.units.toFixed(2)}u
+                {stats.units >= 0 ? "+" : ""}{stats.units.toFixed(2)}u
               </span>
             </div>
-            <EquityCurveBall data={PNL_SERIES} className="h-72 sm:h-96" />
+            <EquityCurveBall data={series} className="h-72 sm:h-96" />
+            {loading && (
+              <p className="mt-4 text-xs text-text-faint">Caricamento dati…</p>
+            )}
           </div>
         </ScrollReveal>
       </div>
