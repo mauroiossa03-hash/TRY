@@ -76,10 +76,10 @@ export default function Hero() {
           className="text-white font-semibold tracking-tight leading-[1.02]"
         >
           <span className="block text-2xl sm:text-3xl lg:text-4xl font-medium text-white/85">
-            Metodi quantitativi sul
+            Metodi Quantitativi applicati al
           </span>
           <span className="block mt-1 text-6xl sm:text-7xl lg:text-8xl text-mint">
-            table tennis
+            Table-Tennis
           </span>
         </motion.h1>
 
@@ -113,7 +113,7 @@ export default function Hero() {
             href="#service"
             className="inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3.5 text-base font-medium text-white hover:bg-white/10 transition-colors"
           >
-            Come funziona
+            Come funziona 🏓
           </a>
         </motion.div>
 
