@@ -3,7 +3,7 @@ import ScrollReveal from "./ScrollReveal";
 import SplitFlap from "./SplitFlap";
 import EquityCurveBall from "./EquityCurveBall";
 import Logo from "./Logo";
-import { usePerformance } from "../lib/usePerformance";
+import { usePerformanceContext } from "../lib/PerformanceContext";
 
 const MONTHS_IT = [
   "gen", "feb", "mar", "apr", "mag", "giu",
@@ -18,10 +18,10 @@ function fmtMonthYear(iso?: string): string | null {
 }
 
 export default function Performance() {
-  const { series, stats, isMock, loading } = usePerformance();
+  const { series, stats, isMock, loading } = usePerformanceContext();
 
-  const since = fmtMonthYear(stats.sinceDate) ?? "set 2025";
-  const last = fmtMonthYear(stats.lastDate) ?? "oggi";
+  const since = fmtMonthYear(stats.sinceDate) ?? (isMock ? "set 2025" : "—");
+  const last = fmtMonthYear(stats.lastDate) ?? (isMock ? "oggi" : "—");
 
   const statCards = [
     {
@@ -39,6 +39,7 @@ export default function Performance() {
     {
       label: "Tracciato da",
       value: since,
+      plain: true,
     },
   ];
 
@@ -71,11 +72,17 @@ export default function Performance() {
                 <p className="text-xs uppercase tracking-wide text-text-faint mb-3">
                   {stat.label}
                 </p>
-                <SplitFlap
-                  value={stat.value}
-                  className="text-3xl text-text font-semibold"
-                  cellClassName="rounded-sm bg-black/[0.04] border border-black/10 px-1 mr-0.5"
-                />
+                {stat.plain ? (
+                  <span className="text-3xl text-text font-semibold">
+                    {stat.value}
+                  </span>
+                ) : (
+                  <SplitFlap
+                    value={stat.value}
+                    className="text-3xl text-text font-semibold"
+                    cellClassName="rounded-sm bg-black/[0.04] border border-black/10 px-1 mr-0.5"
+                  />
+                )}
               </div>
             ))}
           </div>

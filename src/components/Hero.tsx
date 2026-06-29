@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL, BRAND_TAGLINE } from "../lib/config";
-import { IS_MOCK_DATA } from "../lib/mockData";
+import { usePerformanceContext } from "../lib/PerformanceContext";
 
 export default function Hero() {
+  const { isMock } = usePerformanceContext();
   const [videoFailed, setVideoFailed] = useState(false);
   const [isMobile, setIsMobile] = useState(
     () =>
@@ -66,7 +67,7 @@ export default function Hero() {
             <span className="relative inline-flex size-2 rounded-full bg-red" />
           </span>
           <span className="font-mono text-xs tracking-wide text-white/80">
-            {IS_MOCK_DATA
+            {isMock
               ? "DEMO · Czech Liga Pro e TT Cup"
               : "Czech Liga Pro · TT Cup · monitoraggio 24/7"}
           </span>

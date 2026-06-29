@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { X } from "lucide-react";
-import { IS_MOCK_DATA } from "../lib/mockData";
+import { usePerformanceContext } from "../lib/PerformanceContext";
 
 const STORAGE_KEY = "qb-demo-banner-dismissed";
 
 export default function DemoBanner() {
+  const { isMock, loading } = usePerformanceContext();
   const [dismissed, setDismissed] = useState(
     () => localStorage.getItem(STORAGE_KEY) === "1",
   );
 
-  if (!IS_MOCK_DATA || dismissed) return null;
+  // Hide while loading (avoid a flash) and once real data is live.
+  if (loading || !isMock || dismissed) return null;
 
   const dismiss = () => {
     localStorage.setItem(STORAGE_KEY, "1");
