@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import DemoBanner from "./components/DemoBanner";
 import Home from "./pages/Home";
 import { PerformanceProvider } from "./lib/PerformanceContext";
 
@@ -38,7 +37,6 @@ export default function App() {
         </a>
         <ScrollManager />
         <Navbar />
-        <DemoBanner />
         <main id="main" className="flex-1">
           <Suspense fallback={null}>
             <Routes>

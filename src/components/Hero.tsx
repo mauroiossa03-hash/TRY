@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { HERO_VIDEO_URL, HERO_FALLBACK_IMAGE, TELEGRAM_URL, BRAND_TAGLINE } from "../lib/config";
-import { usePerformanceContext } from "../lib/PerformanceContext";
 
 export default function Hero() {
-  const { isMock } = usePerformanceContext();
   const [videoFailed, setVideoFailed] = useState(false);
   const [isMobile, setIsMobile] = useState(
     () =>
@@ -56,23 +54,6 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/15 to-black/70" />
 
       <div className="relative z-10 mx-auto max-w-4xl w-full px-5 sm:px-8 pt-24 pb-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 mb-8"
-        >
-          <span className="relative flex size-2">
-            <span className="absolute inline-flex size-full rounded-full bg-red opacity-75 animate-ping" />
-            <span className="relative inline-flex size-2 rounded-full bg-red" />
-          </span>
-          <span className="font-mono text-xs tracking-wide text-white/80">
-            {isMock
-              ? "DEMO · Czech Liga Pro e TT Cup"
-              : "Czech Liga Pro · TT Cup · monitoraggio 24/7"}
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,17 +67,6 @@ export default function Hero() {
             table tennis
           </span>
         </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.22, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="mt-6 flex items-center justify-center gap-3 font-mono text-xs sm:text-sm uppercase tracking-[0.18em] text-white/70"
-        >
-          <span>Czech Liga Pro</span>
-          <span className="text-mint/70">·</span>
-          <span>TT Cup</span>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

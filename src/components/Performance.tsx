@@ -1,6 +1,5 @@
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
-import SplitFlap from "./SplitFlap";
 import EquityCurveBall from "./EquityCurveBall";
 import Logo from "./Logo";
 import { usePerformanceContext } from "../lib/PerformanceContext";
@@ -39,7 +38,6 @@ export default function Performance() {
     {
       label: "Tracciato da",
       value: since,
-      plain: true,
     },
   ];
 
@@ -72,17 +70,9 @@ export default function Performance() {
                 <p className="text-xs uppercase tracking-wide text-text-faint mb-3">
                   {stat.label}
                 </p>
-                {stat.plain ? (
-                  <span className="text-3xl text-text font-semibold">
-                    {stat.value}
-                  </span>
-                ) : (
-                  <SplitFlap
-                    value={stat.value}
-                    className="text-3xl text-text font-semibold"
-                    cellClassName="rounded-sm bg-black/[0.04] border border-black/10 px-1 mr-0.5"
-                  />
-                )}
+                <span className="text-3xl text-text font-semibold tabular-nums">
+                  {stat.value}
+                </span>
               </div>
             ))}
           </div>
@@ -95,7 +85,6 @@ export default function Performance() {
                 <p className="text-sm text-text font-medium">PnL cumulativo (unità)</p>
                 <p className="text-xs text-text-faint mt-1">
                   {stats.totalSignals} segnali &middot; {since} &ndash; {last}
-                  {isMock && " · demo"}
                 </p>
               </div>
               <span className="font-mono-tabular text-sm text-mint">
