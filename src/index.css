@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+  /* White base — matches the logo background */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f7f5f3;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0eeea;
+  --color-border: #eae6e1;
+  --color-edge: #d9d3cb;
+
+  /* Brand accent — paddle red. Kept under the `mint` token name so all
+     existing brand utilities (bg-mint / text-mint / glow-mint) follow. */
+  --color-mint: #d83a2f;
+  --color-mint-dim: #b62d24;
+
+  /* Red energy accent (live dots, win) — same hue as the brand */
+  --color-red: #d83a2f;
+  /* Light orange — secondary accent, pending / caution */
+  --color-amber: #e8843a;
+  /* Soft peach from the histogram bars — decorative fills */
+  --color-peach: #f4bd9b;
+
+  /* Ink — near-black, like the bell curve and wordmark */
+  --color-text: #161719;
+  --color-text-dim: #4d4f54;
+  --color-text-faint: #80838a;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--color-mint);
+    color: #ffffff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-edge);
+    border-radius: 8px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-mint);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-feature-settings: "tnum";
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(20, 20, 22, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(20, 20, 22, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #161719 0%, #d83a2f 70%, #e8843a 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glow-mint {
+    box-shadow: 0 0 0 1px rgba(216, 58, 47, 0.25), 0 0 40px -10px rgba(216, 58, 47, 0.4);
+  }
+
+  .flap-char {
+    display: inline-block;
+    transform-origin: 50% 50%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .flap-char {
+      animation: flap-in 120ms ease-out;
+    }
+  }
+}
+
+@keyframes flap-in {
+  0% {
+    transform: rotateX(70deg);
+    opacity: 0.4;
+  }
+  60% {
+    transform: rotateX(-6deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
