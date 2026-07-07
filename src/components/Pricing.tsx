@@ -1,20 +1,53 @@
-import { Check, ArrowUpRight } from "lucide-react";
+import { Check, X, ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import ScrollReveal from "./ScrollReveal";
 import { TELEGRAM_URL } from "../lib/config";
 
-const PLANS = [
+type Feature = { label: string; included: boolean };
+
+type Plan = {
+  name: string;
+  price: string;
+  period: string;
+  description: string;
+  highlight: boolean;
+  badge?: string;
+  cta: string;
+  features: Feature[];
+};
+
+const PLANS: Plan[] = [
+  {
+    name: "Prova gratis",
+    price: "0",
+    period: "",
+    description: "Assaggia il servizio senza impegno, per un periodo limitato.",
+    highlight: false,
+    cta: "Entra nel canale GRATIS",
+    features: [
+      { label: "1 sola strategia (per un periodo limitato)", included: false },
+      { label: "Entrata, quota, tag e PnL su ogni segnale", included: true },
+      { label: "Consegna su Telegram in tempo reale", included: true },
+      { label: "Accesso alla dashboard delle performance", included: true },
+      { label: "Supporto clienti", included: false },
+      { label: "Chat di gruppo", included: false },
+    ],
+  },
   {
     name: "Mensile",
     price: "49",
     period: "/mese",
     description: "Accesso completo, fatturato mensilmente. Disdici quando vuoi.",
     highlight: true,
+    badge: "Più scelto",
+    cta: "Abbonati su Telegram",
     features: [
-      "Tutti i segnali live (3ª partita + 6ª decisiva)",
-      "Entrata, quota, tag e PnL su ogni segnale",
-      "Consegna su Telegram in tempo reale",
-      "Accesso alla dashboard delle performance",
+      { label: "Accesso ai segnali di tutte le strategie", included: true },
+      { label: "Entrata, quota, tag e PnL su ogni segnale", included: true },
+      { label: "Consegna su Telegram in tempo reale", included: true },
+      { label: "Accesso alla dashboard delle performance", included: true },
+      { label: "Supporto clienti", included: true },
+      { label: "Chat di gruppo", included: true },
     ],
   },
 ];
@@ -38,7 +71,7 @@ export default function Pricing() {
           description="Il canale gratuito mostra una sola strategia. Con l'abbonamento ricevi i segnali di tutte le strategie attive — tracciati e trasparenti, senza offerte a vita né upsell discrezionali."
         />
 
-        <div className="mt-14 max-w-md mx-auto">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 max-w-3xl mx-auto items-stretch">
           {PLANS.map((plan, i) => (
             <ScrollReveal key={plan.name} delay={i * 0.1}>
               <div
@@ -48,9 +81,9 @@ export default function Pricing() {
                     : "border-border bg-surface hover:border-edge"
                 }`}
               >
-                {plan.highlight && (
+                {plan.badge && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-mint px-3 py-1 text-xs font-medium text-white">
-                    Più scelto
+                    {plan.badge}
                   </span>
                 )}
                 <h3 className="text-text font-medium text-lg">{plan.name}</h3>
@@ -59,14 +92,25 @@ export default function Pricing() {
                   <span className="font-mono-tabular text-4xl text-text font-semibold">
                     €{plan.price}
                   </span>
-                  <span className="text-text-faint text-sm">{plan.period}</span>
+                  {plan.period && (
+                    <span className="text-text-faint text-sm">{plan.period}</span>
+                  )}
                 </div>
 
                 <ul className="mt-7 space-y-3">
                   {plan.features.map((feature) => (
-                    <li key={feature} className="flex items-start gap-2.5 text-sm text-text-dim">
-                      <Check className="size-4 text-mint shrink-0 mt-0.5" />
-                      {feature}
+                    <li
+                      key={feature.label}
+                      className={`flex items-start gap-2.5 text-sm ${
+                        feature.included ? "text-text-dim" : "text-text-faint"
+                      }`}
+                    >
+                      {feature.included ? (
+                        <Check className="size-4 text-mint shrink-0 mt-0.5" />
+                      ) : (
+                        <X className="size-4 text-text-faint shrink-0 mt-0.5" />
+                      )}
+                      {feature.label}
                     </li>
                   ))}
                 </ul>
@@ -81,7 +125,7 @@ export default function Pricing() {
                       : "border border-edge text-text hover:bg-surface-2"
                   }`}
                 >
-                  Abbonati su Telegram
+                  {plan.cta}
                   <ArrowUpRight className="size-3.5" />
                 </a>
               </div>
